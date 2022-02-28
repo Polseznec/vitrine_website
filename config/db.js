@@ -6,4 +6,4 @@ mongoose.connect(`mongodb+srv://${process.env.DB_KEY_USERNAME}:${process.env.DB_
 
     })
     .then((self) => console.log(`Connected to "Mongodb/${self.connection.name}"`))
-    .catch((err) => console.log('Connect to mongoDb failed, error => ', err))
+    .catch((err) => console.log(`Connect to mongoDb failed, error :"${err}"`))
