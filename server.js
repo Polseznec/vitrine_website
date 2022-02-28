@@ -1,4 +1,5 @@
 const express = require("express")
+const bodyParser = require("body-parser")
 const userRoutes = require('./routes/user.routes')
 require('dotenv').config({
     path: './config/.env'
@@ -6,8 +7,11 @@ require('dotenv').config({
 require('./config/db')
 const app = express();
 
-
-
+//bodyparser
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
 
 //Routes
 app.use('/api/user', userRoutes);

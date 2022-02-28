@@ -1,6 +1,7 @@
 const UserModel = require('../models/user.model.js');
 
 module.exports.signUp = async (req, res) => {
+    console.log(req.body);
     const {
         email,
         password
@@ -10,7 +11,7 @@ module.exports.signUp = async (req, res) => {
         const user = await UserModel.create({
             email,
             password
-        })
+        });
         res.status(201).json({
             user: user._id
         })
