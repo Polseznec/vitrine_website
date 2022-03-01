@@ -19,5 +19,6 @@ module.exports.signUp = async (req, res) => {
         res.status(200).send({
             err
         })
+        console.log("SignUp Error : ", err);
     }
 }
