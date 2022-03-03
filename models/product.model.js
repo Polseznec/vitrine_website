@@ -7,12 +7,12 @@ const productSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
-    bio: {
+    description: {
         type: String,
         required: true,
         trim: true,
     },
-    picture: {
+    main_picture: {
         type: String,
         required: true,
         default: "./uploads/profil/random-product.png"
@@ -22,4 +22,4 @@ const productSchema = new mongoose.Schema({
 
 const ProductModel = mongoose.model("product", productSchema)
 
-module.export = ProductModel
+module.exports = ProductModel
