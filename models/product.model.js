@@ -17,6 +17,8 @@ const productSchema = new mongoose.Schema({
         required: true,
         default: "./uploads/profil/random-product.png"
     }
+}, {
+    timestamps: true,
 })
 
 

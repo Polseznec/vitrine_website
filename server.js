@@ -1,18 +1,30 @@
-const express = require("express")
-const bodyParser = require("body-parser")
-const userRoutes = require('./routes/user.routes')
-const productRoutes = require('./routes/product.routes')
+const express = require("express");
+const cookieParser = require('cookie-parser');
+const userRoutes = require('./routes/user.routes');
+const productRoutes = require('./routes/product.routes');
 require('dotenv').config({
     path: './config/.env'
 })
 require('./config/db')
+const {
+    checkUser,
+    requireAuth
+} = require('./middleware/auth.middleware')
+
 const app = express();
 
-//bodyparser
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({
-    extended: true
-}))
+//bodyparser & cookieparer
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: false
+}));
+app.use(cookieParser())
+
+//jwt
+app.get('*', checkUser);
+app.get('/jwtid', requireAuth, (req, res) => {
+    res.status(200).send(res.locals.user._id)
+});
 
 //Routes
 app.use('/api/user', userRoutes);
