@@ -4,7 +4,7 @@ const userRoutes = require('./routes/user.routes');
 const productRoutes = require('./routes/product.routes');
 require('dotenv').config({
     path: './config/.env'
-})
+});
 require('./config/db')
 const {
     checkUser,
@@ -13,7 +13,7 @@ const {
 
 const app = express();
 
-//bodyparser & cookieparer
+//body & cookieparer
 app.use(express.json());
 app.use(express.urlencoded({
     extended: false

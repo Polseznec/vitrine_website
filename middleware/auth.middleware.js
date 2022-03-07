@@ -1,5 +1,5 @@
-const UserModel = require('../models/user.model.js');
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
+const UserModel = require("../models/user.model");
 
 module.exports.checkUser = (req, res, next) => {
     const token = req.cookies.jwt;
@@ -12,18 +12,16 @@ module.exports.checkUser = (req, res, next) => {
                 });
                 next();
             } else {
-                console.log("decodedToken" + decodedToken.id);
                 let user = await UserModel.findById(decodedToken.id);
                 res.locals.user = user;
-                console.log(res.locals.user);
                 next();
             }
-        })
+        });
     } else {
         res.locals.user = null;
         next();
     }
-}
+};
 
 module.exports.requireAuth = (req, res, next) => {
     const token = req.cookies.jwt;
@@ -31,12 +29,13 @@ module.exports.requireAuth = (req, res, next) => {
         jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
             if (err) {
                 console.log(err);
+                res.send(200).json('no token')
             } else {
                 console.log(decodedToken.id);
                 next();
             }
         });
     } else {
-        console.log("token not finded");
+        console.log('No token');
     }
-}
+};

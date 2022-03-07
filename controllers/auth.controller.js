@@ -13,27 +13,29 @@ const createToken = (id) => {
 };
 
 module.exports.signUp = async (req, res) => {
-    console.log(req.body);
     const {
+
         email,
         password
     } = req.body
 
     try {
         const user = await UserModel.create({
+
             email,
             password
         });
         res.status(201).json({
             user: user._id
-        })
+        });
     } catch (err) {
+        const errors = signUpErrors(err);
         res.status(200).send({
-            err
+            errors
         })
-        console.log("SignUp Error : ", err);
     }
 }
+
 
 
 module.exports.logIn = async (req, res) => {
@@ -43,11 +45,11 @@ module.exports.logIn = async (req, res) => {
     } = req.body
 
     try {
-        const user = await UserModel.login(email, password)
-        const token = createToken(user._id)
-        res.cookie('jtw', token, {
+        const user = await UserModel.login(email, password);
+        const token = createToken(user._id);
+        res.cookie('jwt', token, {
             httpOnly: true,
-            maxAge: maxAge
+            maxAge
         });
         res.status(200).json({
             user: user._id
@@ -59,7 +61,6 @@ module.exports.logIn = async (req, res) => {
         });
     }
 }
-
 
 
 module.exports.logOut = (req, res) => {
