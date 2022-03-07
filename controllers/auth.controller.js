@@ -1,4 +1,8 @@
 const UserModel = require('../models/user.model.js');
+const {
+    signUpErrors,
+    logInErrors
+} = require('../utils/errors.utils')
 const jwt = require('jsonwebtoken');
 
 //create token for user
@@ -14,14 +18,12 @@ const createToken = (id) => {
 
 module.exports.signUp = async (req, res) => {
     const {
-
         email,
         password
     } = req.body
 
     try {
         const user = await UserModel.create({
-
             email,
             password
         });
@@ -35,7 +37,6 @@ module.exports.signUp = async (req, res) => {
         })
     }
 }
-
 
 
 module.exports.logIn = async (req, res) => {
@@ -55,8 +56,9 @@ module.exports.logIn = async (req, res) => {
             user: user._id
         })
     } catch (err) {
-        const errors = signInErrors(err);
-        res.status(200).json({
+        const errors = logInErrors(err);
+        console.log(errors);
+        res.status(200).send({
             errors
         });
     }

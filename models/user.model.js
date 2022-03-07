@@ -9,13 +9,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         validate: [isEmail],
+        unique: true,
         lowercase: true,
         trim: true
     },
     password: {
         type: String,
         required: true,
-        max: 1024,
+        max: 124,
         minlength: 6,
     },
 
