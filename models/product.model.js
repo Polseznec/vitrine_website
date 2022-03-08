@@ -15,7 +15,7 @@ const productSchema = new mongoose.Schema({
     main_picture: {
         type: String,
         required: true,
-        default: "./uploads/profil/random-product.png"
+        default: "./uploads/product/product_default.png"
     }
 }, {
     timestamps: true,

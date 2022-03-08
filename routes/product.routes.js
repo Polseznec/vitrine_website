@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const productController = require('../controllers/product.controller')
-const uploadControllers = require('../controllers/upload.controller')
-const multer = require('multer')
-const upload = multer
+const productController = require('../controllers/product.controller');
+const uploadControllers = require('../controllers/upload.controller');
+const multer = require('multer');
+const upload = multer();
 
 router.post('/new', productController.createProduct);
 router.get('/', productController.getAllProducts);
@@ -12,8 +12,7 @@ router.delete('/:id', productController.delectProduct);
 
 
 // upload
-
-//router.post('/upload', upload.single('file'), uploadControllers)
+router.post('/upload', upload.single('file'), uploadControllers.uploadProduct);
 
 
 module.exports = router

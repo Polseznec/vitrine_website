@@ -3,6 +3,7 @@ module.exports.signUpErrors = (err) => {
         email: "",
         password: ""
     }
+
     if (err.message.includes('email')) {
         errors.email = "Email incorrect 😔"
     }
@@ -19,11 +20,24 @@ module.exports.logInErrors = (err) => {
         email: "",
         password: ""
     }
-    if (err.message.includes("email")) {
-        errors.email = "Email inconnu";
+
+    if (err.message.includes('email')) errors.email = "Email inconnu";
+    if (err.message.includes('password')) errors.password = "Le mot de passe ne correspond pas"
+    return errors;
+}
+
+
+module.exports.uploadErrors = (err) => {
+    let errors = {
+        format: "",
+        maxSize: ""
     }
-    if (err.message.includes('password')) {
-        errors.password = "Le mot de passe ne correspond pas"
+
+    if (err.message.includes('INVALID_FILE')) {
+        errors.format = "Mauvais format de fichier."
+    }
+    if (err.message.includes('MAX_SIZE')) {
+        errors.maxSize = "Image trop grande (max : 600ko)"
     }
     return errors;
 }
