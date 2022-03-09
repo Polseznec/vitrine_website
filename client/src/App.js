@@ -1,15 +1,40 @@
-import { GlobalStyles } from "./GlobalStyles.style";
+import React from "react";
+import Routes from "./components/Routes";
 
-import * as C from "./Components/Containers/styles";
-import * as I from "./Components/Inputs/Inputs.styles";
+import { UserIdContext } from "./components/AppContext";
+import axios from "axios";
+
+import { GlobalStyles } from "./styles/GlobalStyles.style";
+import * as C from "./components/Containers/Containers.styles";
 
 function App() {
-  return (
-    <C.App className="App">
-      <GlobalStyles />
+  const [userId, setUserId] = React.useState(null);
+  //console.log(userId, "Token From App comp");
 
-      <I.Button text="Test" />
-    </C.App>
+  React.useEffect(() => {
+    const fechToken = async () => {
+      await axios({
+        method: "get",
+        url: `${process.env.REACT_APP_API_URL}jwtid`,
+        withCredentials: true,
+      })
+        .then((res) => {
+          setUserId(res.data);
+        })
+        .catch((err) => {
+          console.log("No Token");
+        });
+    };
+    fechToken();
+  }, [userId]);
+
+  return (
+    <UserIdContext.Provider value={userId}>
+      <C.App className="App">
+        <GlobalStyles />
+        <Routes />
+      </C.App>
+    </UserIdContext.Provider>
   );
 }
 
