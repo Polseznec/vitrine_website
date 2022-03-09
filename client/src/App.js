@@ -1,11 +1,11 @@
 import React from "react";
-import Routes from "./components/Routes";
-
-import { UserIdContext } from "./components/AppContext";
+import Routes from "./Components/Routes/Routes.index";
 import axios from "axios";
 
+import { UserIdContext } from "./Components/AppContext";
+
 import { GlobalStyles } from "./styles/GlobalStyles.style";
-import * as C from "./components/Containers/Containers.styles";
+import * as C from "./Components/Containers/Containers.styles";
 
 function App() {
   const [userId, setUserId] = React.useState(null);

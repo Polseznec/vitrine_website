@@ -1,9 +1,9 @@
 import React from "react";
-import Log from "../components/Log";
+import Log from "../Components/Log/Log.index";
 
-import { UserIdContext } from "../components/AppContext";
+import { UserIdContext } from "../Components/AppContext";
 
-import * as C from "../components/Containers/Containers.styles";
+import * as C from "../Components/Containers/Containers.styles";
 
 function Dashboard() {
   const UserId = React.useContext(UserIdContext);
