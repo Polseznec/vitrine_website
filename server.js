@@ -25,7 +25,6 @@ const corsOptions = {
 }
 app.use(cors(corsOptions));
 
-
 //body & cookieparer
 app.use(express.json());
 app.use(express.urlencoded({
