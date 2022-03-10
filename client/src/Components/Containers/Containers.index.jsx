@@ -31,3 +31,10 @@ export const indexFullScreen = ({ className, children, ...props }) => {
     </div>
   );
 };
+export const IndexDashboard = ({ className, children, ...props }) => {
+  return (
+    <div className={className} {...props}>
+      {children}
+    </div>
+  );
+};
