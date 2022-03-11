@@ -1,9 +1,9 @@
 import React from "react";
 
-export const IndexButton = ({ className, text, ...props }) => {
+export const IndexButton = ({ className, onClick, title, ...props }) => {
   return (
-    <button className={className} {...props}>
-      {text}
+    <button className={className} onClick={onClick} {...props}>
+      {title}
     </button>
   );
 };

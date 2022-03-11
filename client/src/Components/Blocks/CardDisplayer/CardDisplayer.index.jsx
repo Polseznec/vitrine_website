@@ -4,6 +4,8 @@ import axios from "axios";
 import * as C from "../../Containers/Containers.styles";
 import { HorizontalCard } from "../HorizontalCard/HorizontalCard.style";
 import { EditCard } from "../EditCard/EditCard.style";
+import { Button } from "../../Inputs/Inputs.styles";
+import { NewProductForm } from "../NewProductForm/NewProductForm.style";
 
 export const IndexCardDisplayer = ({
   className,
@@ -12,8 +14,10 @@ export const IndexCardDisplayer = ({
   ...props
 }) => {
   const [products, setProducts] = React.useState([]);
-  const [productTarget, setProductTarget] = React.useState(null);
+  const [productTarget, setProductTarget] = React.useState("");
+  const [handleNewProduct, setHandleNewProduct] = React.useState(false);
 
+  //   console.log("targeted produit", productTarget);
   React.useEffect(() => {
     axios({
       method: "get",
@@ -42,6 +46,9 @@ export const IndexCardDisplayer = ({
       />
     );
   });
+  const toHandleNewProduct = () => {
+    setHandleNewProduct(!handleNewProduct);
+  };
 
   return (
     <div className={className} {...props}>
@@ -56,6 +63,9 @@ export const IndexCardDisplayer = ({
       >
         {title}
       </h1>
+      <br />
+      <Button title={"New Item"} onClick={toHandleNewProduct} />
+      {handleNewProduct ? <NewProductForm /> : null}
       <C.Container>
         <C.Container
           column={toString()}

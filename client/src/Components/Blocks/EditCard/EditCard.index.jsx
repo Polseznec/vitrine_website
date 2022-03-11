@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
 
+import { EditCardDisplayer } from "../EditCardDisplayer/EditCardDisplayer.style.js";
+
 export const IndexEditCard = ({ _id }) => {
-  const [product, setProduct] = React.useState(_id);
-  console.log(product);
+  const [product, setProduct] = React.useState("");
 
   React.useEffect(() => {
     const fetshProduct = async () => {
@@ -13,7 +14,6 @@ export const IndexEditCard = ({ _id }) => {
         withCredentials: true,
       })
         .then((res) => {
-          // console.log("data", res);
           setProduct(res.data);
         })
         .catch((err) => {
@@ -23,19 +23,19 @@ export const IndexEditCard = ({ _id }) => {
     fetshProduct();
   }, [_id]);
 
-  console.log("___");
-  console.log("selected : ", product);
-
   return (
     <div>
-      {/* {_id ? (
+      {_id ? (
         <div>
-          <span>{product.title}</span>
-          <span>{product.description}</span>
+          <EditCardDisplayer
+            title={product.title}
+            description={product.description}
+            _id={product._id}
+          />
         </div>
       ) : (
         <span>Select Product</span>
-      )} */}
+      )}
     </div>
   );
 };
