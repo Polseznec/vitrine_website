@@ -37,40 +37,31 @@ module.exports.productInfo = async function (req, res) {
   });
 };
 
-module.exports.updateProduct = async function (req, res) {
+module.exports.updateProduct = function (req, res) {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).send("product id unknow : " + res.params.id);
 
-  try {
-    await ProductModel.findByIdAndUpdate(
-      {
-        _id: req.params.id,
-      },
-      {
-        $set: {
-          title: req.body.title,
-          description: req.body.description,
-          main_picture: req.body.main_picture,
-        },
-      },
-      {
-        new: true,
-        upsert: true,
-        setDefaultsOnInsert: true,
-      },
-      (err, docs) => {
-        if (!err) return res.send(docs);
-        if (err)
-          return res.status(500).send({
-            message: err,
-          });
-      }
-    );
-  } catch (err) {
-    return res.status(500).json({
-      message: err,
-    });
-  }
+  const data = {
+    title: req.body.title,
+    description: req.body.description,
+    main_picture: req.body.main_picture,
+  };
+
+  ProductModel.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: data,
+    },
+    {
+      new: true,
+      upsert: true,
+      setDefaultsOnInsert: true,
+    },
+    (err, docs) => {
+      if (!err) res.send(docs);
+      else console.log("Update error : " + err);
+    }
+  );
 };
 
 module.exports.delectProduct = async function (req, res) {

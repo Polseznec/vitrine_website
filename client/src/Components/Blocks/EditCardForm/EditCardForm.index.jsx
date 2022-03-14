@@ -4,18 +4,17 @@ import axios from "axios";
 export const IndexEditCardForm = ({ title, description, _id }) => {
   const [editTitle, setEditTitle] = React.useState(title);
   const [editDescription, setEditDescription] = React.useState(description);
-  console.log(`${process.env.REACT_APP_API_URL}api/product/${_id}`);
 
   const postEdit = (e) => {
     e.preventDefault();
+
+    const data = { title: editTitle, description: editDescription };
+
     axios({
       method: "put",
       url: `${process.env.REACT_APP_API_URL}api/product/${_id}`,
       withCredentials: true,
-      data: {
-        editTitle,
-        editDescription,
-      },
+      data: data,
     })
       .then((res) => {
         if (res.data.errors) {

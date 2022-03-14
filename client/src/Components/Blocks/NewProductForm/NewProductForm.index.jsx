@@ -5,7 +5,7 @@ import { Button } from "../../Inputs/Inputs.styles";
 export const IndexNewProductForm = ({ className, backButton }) => {
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
-  const [picture, setpicture] = React.useState("");
+  const [picture, setPicture] = React.useState("");
 
   const handelLogin = (e) => {
     e.preventDefault();

@@ -17,6 +17,7 @@ export const IndexEditCardDisplayer = ({ title, description, _id }) => {
     setDelect(!delect);
     setEdit(false);
   };
+
   const delectProduct = () => {
     axios({
       method: "delete",
