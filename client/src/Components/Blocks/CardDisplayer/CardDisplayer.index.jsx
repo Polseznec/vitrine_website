@@ -32,20 +32,23 @@ export const IndexCardDisplayer = ({
       });
   }, []);
 
-  const mappingProducts = products.map(({ title, description, _id }, key) => {
-    const handleProduct = () => {
-      setProductTarget(_id);
-    };
-    return (
-      <HorizontalCard
-        title={title}
-        description={description}
-        id={_id}
-        key={key}
-        onClick={handleProduct}
-      />
-    );
-  });
+  const mappingProducts = products.map(
+    ({ title, description, main_picture, _id }, key) => {
+      const handleProduct = () => {
+        setProductTarget(_id);
+      };
+      return (
+        <HorizontalCard
+          title={title}
+          description={description}
+          main_picture={main_picture}
+          id={_id}
+          key={key}
+          onClick={handleProduct}
+        />
+      );
+    }
+  );
   const toHandleNewProduct = () => {
     setHandleNewProduct(!handleNewProduct);
   };
@@ -65,7 +68,13 @@ export const IndexCardDisplayer = ({
       </h1>
       <br />
       <Button title={"New Item"} onClick={toHandleNewProduct} />
-      {handleNewProduct ? <NewProductForm /> : null}
+      {handleNewProduct ? (
+        <NewProductForm
+          backButton={() => {
+            setHandleNewProduct(false);
+          }}
+        />
+      ) : null}
       <C.Container>
         <C.Container
           column={toString()}
