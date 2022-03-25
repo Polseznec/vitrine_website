@@ -5,6 +5,9 @@ import { UserIdContext } from "../Components/AppContext";
 import { ProductsContainer } from "../Components/Home/ProductsContainer";
 import { Button } from "../Components/Buttons";
 
+//styled
+import { FullScreenContainer } from "../Components/styles/Container.styled";
+
 function Home() {
   const UserId = React.useContext(UserIdContext);
 
@@ -15,28 +18,25 @@ function Home() {
   };
 
   return (
-    <div style={style.main_container}>
-      <div>head</div>
+    <FullScreenContainer>
+      <h1>header</h1>
       <ProductsContainer />
       {UserId ? (
         <Button
           onClick={handleDashboard}
           style={style.btn_dashboard}
           title={"Dashboard"}
+          bg={"white"}
         />
       ) : null}
-      <footer>footer</footer>
-    </div>
+      <h1>footer</h1>
+    </FullScreenContainer>
   );
 }
 
 export default Home;
 
 const style = {
-  main_container: {
-    width: "100vw",
-    height: "100vh",
-  },
   btn_dashboard: {
     position: "fixed",
     right: 0,

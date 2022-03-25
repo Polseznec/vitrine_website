@@ -6,6 +6,12 @@ import { SelectedProduct } from "./SelectedProduct";
 import { Button } from "../Buttons";
 import { NewProduct } from "./NewProduct";
 
+//styled
+import { StyleDashboardContainer } from "../styles/Dashboard/DashboardContainer.style";
+import { StyledProductsListContainer } from "../styles/Dashboard/StyledProductsList.styled";
+import { StyledSelectedProductContainer } from "../styles/Dashboard/StyledSelectedProductContainer.styled";
+import { MediaRow } from "../styles/Flexbox.styled";
+
 export const MainContainer = ({ children, ...props }) => {
   const [products, setProducts] = React.useState([]);
   const [productTarget, setProductTarget] = React.useState("");
@@ -47,14 +53,13 @@ export const MainContainer = ({ children, ...props }) => {
   };
 
   return (
-    <div {...props}>
+    <StyleDashboardContainer {...props}>
       <h1
         style={{
           width: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "red",
         }}
       >
         Dashboard
@@ -67,24 +72,18 @@ export const MainContainer = ({ children, ...props }) => {
           }}
         />
       ) : null}
-      <div>
-        <div
-          style={{
-            backgroundColor: "red",
-            width: "50%",
-            flexDirection: "column",
-            overflow: "scroll",
 
-            height: "80vh",
-          }}
-        >
+      <MediaRow>
+        <StyledProductsListContainer>
           {mappingProducts}
-        </div>
-        <div style={{ backgroundColor: "blue", width: "50%" }}>
+        </StyledProductsListContainer>
+
+        <StyledSelectedProductContainer>
           <SelectedProduct _id={productTarget} />
-        </div>
-      </div>
+        </StyledSelectedProductContainer>
+      </MediaRow>
+
       {children}
-    </div>
+    </StyleDashboardContainer>
   );
 };

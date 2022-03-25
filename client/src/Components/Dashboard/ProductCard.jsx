@@ -1,20 +1,24 @@
 import React from "react";
 
-function ProductCard({
-  className,
-  title,
-  description,
-  main_picture,
-  id,
-  onClick,
-}) {
+//styled
+import { StyledProductCard } from "../styles/Dashboard/StyledProductCard.style";
+import { MediaRow, Column } from "../styles/Flexbox.styled";
+import { Padding } from "../styles/Container.styled";
+
+function ProductCard({ title, description, main_picture, id, onClick }) {
   return (
-    <div className={className} onClick={onClick}>
-      <span>{title}</span>
-      <span>{description}</span>
-      <img src={main_picture} alt={title} style={{ height: "200px" }} />
-      <span>{id}</span>
-    </div>
+    <StyledProductCard onClick={onClick}>
+      <MediaRow>
+        <Padding padding={"10px"}>
+          <Column>
+            <span>{title}</span>
+            <span>{description}</span>
+          </Column>
+        </Padding>
+
+        <img src={main_picture} alt={title} />
+      </MediaRow>
+    </StyledProductCard>
   );
 }
 

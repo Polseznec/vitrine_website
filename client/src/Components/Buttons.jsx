@@ -1,9 +1,17 @@
 import React from "react";
+import { StyledButton } from "./styles/Button.styled";
 
-export const Button = ({ className, onClick, title, ...props }) => {
+export const Button = ({ className, onClick, title, bg, color, ...props }) => {
   return (
-    <button className={className} onClick={onClick} {...props}>
+    <StyledButton
+      className={className}
+      onClick={onClick}
+      {...props}
+      //styled
+      bg={bg}
+      color={color}
+    >
       {title}
-    </button>
+    </StyledButton>
   );
 };

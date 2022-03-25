@@ -4,7 +4,9 @@ import axios from "axios";
 
 import { UserIdContext } from "./Components/AppContext";
 
-import { GlobalStyles } from "./styles/GlobalStyles.style";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./Components/styles/_Theme.styled";
+import { GlobalStyles } from "./Components/styles/_GlobalStyles.styled";
 
 function App() {
   const [userId, setUserId] = React.useState(null);
@@ -29,10 +31,10 @@ function App() {
 
   return (
     <UserIdContext.Provider value={userId}>
-      <div className="App">
+      <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Routes />
-      </div>
+      </ThemeProvider>
     </UserIdContext.Provider>
   );
 }

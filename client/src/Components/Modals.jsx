@@ -1,6 +1,9 @@
 import React from "react";
 import { Button } from "./Buttons";
 
+//styled
+import { StyledModal } from "./styles/Modal.styled";
+
 export const Modal = ({
   className,
   title,
@@ -11,28 +14,13 @@ export const Modal = ({
   ...props
 }) => {
   return (
-    <div style={style}>
+    <StyledModal>
+      <div>{title}</div>
+      <br />
       <div>
-        <div>{title}</div>
-        <br />
-        <div>
-          <Button onClick={onClickValidateAction} title={btnValidateAction} />
-          <Button onClick={onClickCancelAction} title={btnCancelAction} />
-        </div>
+        <Button onClick={onClickValidateAction} title={btnValidateAction} />
+        <Button onClick={onClickCancelAction} title={btnCancelAction} />
       </div>
-    </div>
+    </StyledModal>
   );
-};
-
-const style = {
-  width: "50vw",
-  height: "50vh",
-  marginLeft: "calc(50vw / 2)",
-  marginTop: "calc(50vh / 2)",
-  position: "fixed",
-  left: 0,
-  top: 0,
-  overflow: "auto",
-  zIndex: 1000,
-  backgroundColor: "lightgray",
 };
