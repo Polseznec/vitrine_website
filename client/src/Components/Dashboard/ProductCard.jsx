@@ -1,6 +1,6 @@
 import React from "react";
 
-function IndexHorizontalCard({
+function ProductCard({
   className,
   title,
   description,
@@ -8,15 +8,14 @@ function IndexHorizontalCard({
   id,
   onClick,
 }) {
-  console.log(main_picture);
   return (
     <div className={className} onClick={onClick}>
       <span>{title}</span>
       <span>{description}</span>
-      <img src={main_picture} alt={title} />
+      <img src={main_picture} alt={title} style={{ height: "200px" }} />
       <span>{id}</span>
     </div>
   );
 }
 
-export default IndexHorizontalCard;
+export default ProductCard;

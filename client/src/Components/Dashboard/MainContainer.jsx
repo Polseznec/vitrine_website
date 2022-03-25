@@ -1,23 +1,16 @@
 import React from "react";
 import axios from "axios";
 
-import * as C from "../../Containers/Containers.styles";
-import { HorizontalCard } from "../HorizontalCard/HorizontalCard.style";
-import { EditCard } from "../EditCard/EditCard.style";
-import { Button } from "../../Inputs/Inputs.styles";
-import { NewProductForm } from "../NewProductForm/NewProductForm.style";
+import ProductCard from "./ProductCard";
+import { SelectedProduct } from "./SelectedProduct";
+import { Button } from "../Buttons";
+import { NewProduct } from "./NewProduct";
 
-export const IndexCardDisplayer = ({
-  className,
-  title,
-  children,
-  ...props
-}) => {
+export const MainContainer = ({ children, ...props }) => {
   const [products, setProducts] = React.useState([]);
   const [productTarget, setProductTarget] = React.useState("");
   const [handleNewProduct, setHandleNewProduct] = React.useState(false);
 
-  //   console.log("targeted produit", productTarget);
   React.useEffect(() => {
     axios({
       method: "get",
@@ -38,7 +31,7 @@ export const IndexCardDisplayer = ({
         setProductTarget(_id);
       };
       return (
-        <HorizontalCard
+        <ProductCard
           title={title}
           description={description}
           main_picture={main_picture}
@@ -54,41 +47,43 @@ export const IndexCardDisplayer = ({
   };
 
   return (
-    <div className={className} {...props}>
+    <div {...props}>
       <h1
         style={{
-          backgroundColor: "red",
           width: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          backgroundColor: "red",
         }}
       >
-        {title}
+        Dashboard
       </h1>
-      <br />
       <Button title={"New Item"} onClick={toHandleNewProduct} />
       {handleNewProduct ? (
-        <NewProductForm
+        <NewProduct
           backButton={() => {
             setHandleNewProduct(false);
           }}
         />
       ) : null}
-      <C.Container>
-        <C.Container
-          column={toString()}
-          style={{ backgroundColor: "red", width: "50%" }}
+      <div>
+        <div
+          style={{
+            backgroundColor: "red",
+            width: "50%",
+            flexDirection: "column",
+            overflow: "scroll",
+
+            height: "80vh",
+          }}
         >
           {mappingProducts}
-        </C.Container>
-        <C.Container
-          center={toString()}
-          style={{ backgroundColor: "blue", width: "50%" }}
-        >
-          <EditCard _id={productTarget} />
-        </C.Container>
-      </C.Container>
+        </div>
+        <div style={{ backgroundColor: "blue", width: "50%" }}>
+          <SelectedProduct _id={productTarget} />
+        </div>
+      </div>
       {children}
     </div>
   );

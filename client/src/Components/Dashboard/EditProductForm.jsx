@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-export const IndexEditCardForm = ({ title, description, _id }) => {
+export const EditProductForm = ({ title, description, _id }) => {
   const [editTitle, setEditTitle] = React.useState(title);
   const [editDescription, setEditDescription] = React.useState(description);
 

@@ -1,13 +1,11 @@
 import React from "react";
 import LogInFrom from "./LogInForm";
 
-import * as C from "../Containers/Containers.styles";
-
 function Log() {
   return (
-    <C.FullScreen>
+    <div>
       <LogInFrom />
-    </C.FullScreen>
+    </div>
   );
 }
 

@@ -1,9 +1,9 @@
 import React from "react";
 import axios from "axios";
 
-import { EditCardDisplayer } from "../EditCardDisplayer/EditCardDisplayer.style.js";
+import { EditProduct } from "./EditProduct";
 
-export const IndexEditCard = ({ _id }) => {
+export const SelectedProduct = ({ _id }) => {
   const [product, setProduct] = React.useState("");
 
   React.useEffect(() => {
@@ -27,10 +27,11 @@ export const IndexEditCard = ({ _id }) => {
     <div>
       {_id ? (
         <div>
-          <EditCardDisplayer
+          <EditProduct
             title={product.title}
             description={product.description}
             _id={product._id}
+            main_picture={product.main_picture}
           />
         </div>
       ) : (

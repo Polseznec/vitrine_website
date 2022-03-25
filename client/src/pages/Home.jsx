@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { UserIdContext } from "../Components/AppContext";
 
-import { ClientCardDisplayer } from "../Components/Blocks/ClientCardDisplayer/ClientCardDisplayer.style";
-import { Button } from "../Components/Inputs/Inputs.styles";
+import { ProductsContainer } from "../Components/Home/ProductsContainer";
+import { Button } from "../Components/Buttons";
 
 function Home() {
   const UserId = React.useContext(UserIdContext);
@@ -17,7 +17,7 @@ function Home() {
   return (
     <div style={style.main_container}>
       <div>head</div>
-      <ClientCardDisplayer />
+      <ProductsContainer />
       {UserId ? (
         <Button
           onClick={handleDashboard}

@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
 
-import * as C from "../Containers/Containers.styles";
-
 function LogInForm() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -32,7 +30,7 @@ function LogInForm() {
   };
 
   return (
-    <C.Column>
+    <div>
       <span>Ce connecter</span>
       <form action="" onSubmit={handelLogin} id="log-in-form">
         <label htmlFor="email">Email</label>
@@ -57,7 +55,7 @@ function LogInForm() {
         />
         <input type="submit" value="Se connecter"></input>
       </form>
-    </C.Column>
+    </div>
   );
 }
 

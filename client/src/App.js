@@ -5,7 +5,6 @@ import axios from "axios";
 import { UserIdContext } from "./Components/AppContext";
 
 import { GlobalStyles } from "./styles/GlobalStyles.style";
-import * as C from "./Components/Containers/Containers.styles";
 
 function App() {
   const [userId, setUserId] = React.useState(null);
@@ -30,10 +29,10 @@ function App() {
 
   return (
     <UserIdContext.Provider value={userId}>
-      <C.App className="App">
+      <div className="App">
         <GlobalStyles />
         <Routes />
-      </C.App>
+      </div>
     </UserIdContext.Provider>
   );
 }

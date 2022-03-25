@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
-import { Button } from "../../Inputs/Inputs.styles";
+import { Button } from "../Buttons";
 
-export const IndexNewProductForm = ({ className, backButton }) => {
+export const NewProduct = ({ className, backButton }) => {
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
-  const [picture, setPicture] = React.useState("");
+  //const [picture, setPicture] = React.useState("");
 
   const handelLogin = (e) => {
     e.preventDefault();
@@ -33,7 +33,7 @@ export const IndexNewProductForm = ({ className, backButton }) => {
   };
 
   return (
-    <div className={className}>
+    <div style={style}>
       <div>
         <span>Add a new product</span>
       </div>
@@ -65,4 +65,15 @@ export const IndexNewProductForm = ({ className, backButton }) => {
       <Button onClick={backButton} title={"Annuler"} />
     </div>
   );
+};
+
+const style = {
+  width: "100vw",
+  height: "100vh",
+  position: "fixed",
+  left: "0",
+  top: "0",
+  overflow: "auto",
+  zIndex: 1000,
+  backgroundColor: "rgb(211, 211, 211, 0.5)",
 };

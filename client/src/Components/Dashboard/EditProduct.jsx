@@ -1,14 +1,13 @@
 import React from "react";
 import axios from "axios";
 
-import { Button } from "../../Inputs/Inputs.styles";
-import { EditCardForm } from "../EditCardForm/EditCardForm.style";
-import { Modal } from "../Modal/Modal.style";
+import { Button } from "../Buttons";
+import { EditProductForm } from "./EditProductForm";
+import { Modal } from "../Modals";
 
-export const IndexEditCardDisplayer = ({ title, description, _id }) => {
+export const EditProduct = ({ title, description, main_picture, _id }) => {
   const [edit, setEdit] = React.useState(false);
   const [delect, setDelect] = React.useState(false);
-
   const openEdit = () => {
     setEdit(!edit);
     setDelect(false);
@@ -17,7 +16,6 @@ export const IndexEditCardDisplayer = ({ title, description, _id }) => {
     setDelect(!delect);
     setEdit(false);
   };
-
   const delectProduct = () => {
     axios({
       method: "delete",
@@ -33,12 +31,14 @@ export const IndexEditCardDisplayer = ({ title, description, _id }) => {
   return (
     <div>
       {edit ? (
-        <EditCardForm title={title} description={description} _id={_id} />
+        <EditProductForm title={title} description={description} _id={_id} />
       ) : (
         <div>
           <span>{title}</span>
           <br />
           <span>{description}</span>
+          <br />
+          <img src={main_picture} alt={title} />
           <br />
           <span>{_id}</span>
         </div>

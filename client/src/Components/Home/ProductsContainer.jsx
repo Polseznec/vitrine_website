@@ -1,10 +1,12 @@
 import React from "react";
 import axios from "axios";
-import { HorizontalCard } from "../HorizontalCard/HorizontalCard.style";
+import ProductCard from "../Dashboard/ProductCard";
 
-export const IndexClientCardDisplayer = () => {
+export const ProductsContainer = () => {
   const [products, setProducts] = React.useState([]);
   const [productTarget, setProductTarget] = React.useState("");
+
+  console.log(productTarget);
 
   React.useEffect(() => {
     axios({
@@ -26,7 +28,7 @@ export const IndexClientCardDisplayer = () => {
         setProductTarget(_id);
       };
       return (
-        <HorizontalCard
+        <ProductCard
           title={title}
           description={description}
           main_picture={main_picture}
