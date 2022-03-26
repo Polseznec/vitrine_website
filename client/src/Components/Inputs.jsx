@@ -13,6 +13,17 @@ export const TextInput = ({ name, placeholder, onChange, value }) => {
     />
   );
 };
+export const NumberInput = ({ name, placeholder, onChange, value }) => {
+  return (
+    <StyledTextInput
+      type="number"
+      name={name}
+      placeholder={placeholder}
+      onChange={onChange}
+      value={value}
+    />
+  );
+};
 
 export const EmailInput = ({ name, id, onChange, value }) => {
   return (

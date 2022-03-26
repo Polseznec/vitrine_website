@@ -5,7 +5,22 @@ import { Button } from "../Buttons";
 import { EditProductForm } from "./EditProductForm";
 import { Modal } from "../Modals";
 
-export const EditProduct = ({ title, description, main_picture, _id }) => {
+export const EditProduct = ({
+  title,
+  description_part_one,
+  description_part_two,
+  width,
+  height,
+  depth,
+  type,
+  fabric_description,
+  available,
+  main_picture,
+  pattern_picture,
+  carrousel_one_picture,
+  carrousel_two_picture,
+  _id,
+}) => {
   const [edit, setEdit] = React.useState(false);
   const [delect, setDelect] = React.useState(false);
   const openEdit = () => {
@@ -27,16 +42,42 @@ export const EditProduct = ({ title, description, main_picture, _id }) => {
         console.log(err);
       });
   };
+  console.log(available);
 
   return (
     <div>
       {edit ? (
-        <EditProductForm title={title} description={description} _id={_id} />
+        <EditProductForm
+          title={title}
+          description_part_one={description_part_one}
+          description_part_two={description_part_two}
+          width={width}
+          height={height}
+          depth={depth}
+          type={type}
+          fabric_description={fabric_description}
+          available={available}
+          _id={_id}
+        />
       ) : (
         <div>
-          <span>{title}</span>
+          <span>Nom du produit : {title}</span>
           <br />
-          <span>{description}</span>
+          <span>Description part 1 : {description_part_one}</span>
+          <br />
+          <span>Description part 2 : {description_part_two}</span>
+          <br />
+          <span>largeur : {width}cm</span>
+          <br />
+          <span>hauter : {height}cm</span>
+          <br />
+          <span>profondeur ; {depth}cm</span>
+          <br />
+          <span>Type de Produit : {type}</span>
+          <br />
+          <span>Type de Tissu : {fabric_description}</span>
+          <br />
+          <span>Disponible ? : {available ? "Oui" : "non"}</span>
           <br />
           <img src={main_picture} alt={title} />
           <br />

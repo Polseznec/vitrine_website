@@ -1,19 +1,52 @@
 import React from "react";
 import axios from "axios";
 
-import { TextInput, SubmitInput } from "../Inputs";
+//components
+import { TextInput, NumberInput, SubmitInput } from "../Inputs";
 
 //styled
 import { EditProductFormContainer } from "../styles/Dashboard/EditProductFormContainer.styled";
 
-export const EditProductForm = ({ title, description, _id }) => {
+export const EditProductForm = ({
+  title,
+  description_part_one,
+  description_part_two,
+  width,
+  height,
+  depth,
+  type,
+  fabric_description,
+  available,
+  main_picture,
+  _id,
+}) => {
   const [editTitle, setEditTitle] = React.useState(title);
-  const [editDescription, setEditDescription] = React.useState(description);
+  const [editDescriptionPartOne, setEditDescriptionPartOne] =
+    React.useState(description_part_one);
+  const [editDescriptionPartTwo, setEditDescriptionPartTwo] =
+    React.useState(description_part_two);
+  const [editWidth, setEditWidth] = React.useState(width);
+  const [editHeight, setEditHeight] = React.useState(height);
+  const [editDepth, setEditDepth] = React.useState(depth);
+  const [editType, setEditType] = React.useState(type);
+  const [editFabricDescription, setEditFabricDescription] =
+    React.useState(fabric_description);
+  const [editAvailable, setEditAvailable] = React.useState(available);
 
   const postEdit = (e) => {
     e.preventDefault();
 
-    const data = { title: editTitle, description: editDescription };
+    const data = {
+      title: editTitle,
+      description_part_one: editDescriptionPartOne,
+      description_part_two: editDescriptionPartTwo,
+      height: editHeight,
+      width: editWidth,
+      depth: editDepth,
+      type: editType,
+      fabric_description: editFabricDescription,
+      available: editAvailable,
+    };
 
     axios({
       method: "put",
@@ -47,13 +80,70 @@ export const EditProductForm = ({ title, description, _id }) => {
         />
         <br />
         <TextInput
-          name="description"
-          placeholder="Description du produit"
+          name="description_part_one"
+          placeholder="Description du produit part 1"
           onChange={(e) => {
-            setEditDescription(e.target.value);
+            setEditDescriptionPartOne(e.target.value);
           }}
-          value={editDescription}
+          value={editDescriptionPartOne}
         />
+        <br />
+        <TextInput
+          name="description_part_two"
+          placeholder="Description du produit part 2"
+          onChange={(e) => {
+            setEditDescriptionPartTwo(e.target.value);
+          }}
+          value={editDescriptionPartTwo}
+        />
+        <br />
+        <NumberInput
+          name="width"
+          placeholder="Largeur"
+          onChange={(e) => {
+            setEditWidth(e.target.value);
+          }}
+          value={editWidth}
+        />
+        <br />
+        <NumberInput
+          name="height"
+          placeholder="Hauteur"
+          onChange={(e) => {
+            setEditHeight(e.target.value);
+          }}
+          value={editHeight}
+        />
+        <br />
+        <NumberInput
+          name="depth"
+          placeholder="Pronfondeur"
+          onChange={(e) => {
+            setEditDepth(e.target.value);
+          }}
+          value={editDepth}
+        />
+        <br />
+        <TextInput
+          name="type"
+          placeholder="Type de produit"
+          onChange={(e) => {
+            setEditType(e.target.value);
+          }}
+          value={editType}
+        />
+        <br />
+        <TextInput
+          name="fabric_description"
+          placeholder="Type ded tissu"
+          onChange={(e) => {
+            setEditFabricDescription(e.target.value);
+          }}
+          value={editFabricDescription}
+        />
+        <br />
+        <label>Disponible </label>
+        <input type="checkbox" id="scales" name="scales" />
         <br />
         <SubmitInput type="submit" value="Submit !" />
       </form>

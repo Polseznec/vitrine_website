@@ -6,6 +6,7 @@ import { EditProduct } from "./EditProduct";
 
 export const SelectedProduct = ({ _id }) => {
   const [product, setProduct] = React.useState("");
+  console.log(product);
 
   React.useEffect(() => {
     const fetshProduct = async () => {
@@ -30,9 +31,19 @@ export const SelectedProduct = ({ _id }) => {
         <div>
           <EditProduct
             title={product.title}
-            description={product.description}
+            description_part_one={product.description_part_one}
+            description_part_two={product.description_part_two}
+            width={product.width}
+            height={product.height}
+            depth={product.depth}
+            type={product.type}
+            fabric_description={product.fabric_description}
+            available={product.available}
             _id={product._id}
             main_picture={product.main_picture}
+            pattern_picture={product.pattern_picture}
+            carrousel_one_picture={product.carrousel_one_picture}
+            carrousel_two_picture={product.carrousel_two_picture}
           />
         </div>
       ) : (
