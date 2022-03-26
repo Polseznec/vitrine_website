@@ -1,8 +1,14 @@
 import React from "react";
 import axios from "axios";
 import { Button } from "../Buttons";
+import { TextInput, FileInput, SubmitInput } from "../Inputs";
 
-export const NewProduct = ({ className, backButton }) => {
+//styled
+import { NewProductContainer } from "../styles/Dashboard/NewProductContainer.styled";
+import { Center } from "../styles/Flexbox.styled";
+import { BlocTitle } from "../Texts";
+
+export const NewProduct = ({ backButton }) => {
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
   //const [picture, setPicture] = React.useState("");
@@ -33,14 +39,11 @@ export const NewProduct = ({ className, backButton }) => {
   };
 
   return (
-    <div style={style}>
-      <div>
-        <span>Add a new product</span>
-      </div>
-      <div>
+    <NewProductContainer>
+      <Center>
+        <BlocTitle title={"Add a new product"} />
         <form action="" onSubmit={handelLogin} id="new-product-form">
-          <input
-            type="text"
+          <TextInput
             name="Nom"
             placeholder="Nom"
             onChange={(e) => {
@@ -48,8 +51,7 @@ export const NewProduct = ({ className, backButton }) => {
             }}
           />
           <br />
-          <input
-            type="text"
+          <TextInput
             name="Description"
             placeholder="Description"
             onChange={(e) => {
@@ -57,23 +59,12 @@ export const NewProduct = ({ className, backButton }) => {
             }}
           />
           <br />
-          <input type="file" name="picture" />
+          <FileInput name="picture" />
           <br />
-          <input type="submit" value="Submit ! "></input>
+          <SubmitInput value="Submit !" />
+          <Button onClick={backButton} title={"Annuler"} />
         </form>
-      </div>
-      <Button onClick={backButton} title={"Annuler"} />
-    </div>
+      </Center>
+    </NewProductContainer>
   );
-};
-
-const style = {
-  width: "100vw",
-  height: "100vh",
-  position: "fixed",
-  left: "0",
-  top: "0",
-  overflow: "auto",
-  zIndex: 1000,
-  backgroundColor: "rgb(211, 211, 211, 0.5)",
 };

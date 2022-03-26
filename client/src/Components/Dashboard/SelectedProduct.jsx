@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 
+//components
 import { EditProduct } from "./EditProduct";
 
 export const SelectedProduct = ({ _id }) => {

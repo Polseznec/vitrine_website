@@ -1,19 +1,49 @@
 import React from "react";
+//styled
+import { StyledTextInput, StyledSubmitInput } from "./styles/Inputs.styled";
 
-export const Form = ({ className, text, ...props }) => {
+export const TextInput = ({ name, placeholder, onChange, value }) => {
   return (
-    <form className={className} {...props}>
-      {text}
-      <EmailInput />
-      <PasswordInput />
-    </form>
+    <StyledTextInput
+      type="text"
+      name={name}
+      placeholder={placeholder}
+      onChange={onChange}
+      value={value}
+    />
   );
 };
 
-export const EmailInput = ({ className, ...props }) => {
-  return <input className={className} {...props}></input>;
+export const EmailInput = ({ name, id, onChange, value }) => {
+  return (
+    <StyledTextInput
+      type="text"
+      name={name}
+      id={id}
+      onChange={onChange}
+      value={value}
+    />
+  );
 };
 
-export const PasswordInput = ({ className, ...props }) => {
-  return <input className={className} {...props}></input>;
+export const PasswordInput = ({ name, id, onChange, value }) => {
+  return (
+    <StyledTextInput
+      type="password"
+      name={name}
+      id={id}
+      onChange={onChange}
+      value={value}
+    />
+  );
+};
+
+export const FileInput = ({ name }) => {
+  return <input type="file" name={name} />;
+};
+
+export const SubmitInput = ({ value, bg, color }) => {
+  return (
+    <StyledSubmitInput type="submit" value={value} bg={bg} color={color} />
+  );
 };

@@ -1,6 +1,11 @@
 import React from "react";
 import axios from "axios";
 
+import { TextInput, SubmitInput } from "../Inputs";
+
+//styled
+import { EditProductFormContainer } from "../styles/Dashboard/EditProductFormContainer.styled";
+
 export const EditProductForm = ({ title, description, _id }) => {
   const [editTitle, setEditTitle] = React.useState(title);
   const [editDescription, setEditDescription] = React.useState(description);
@@ -21,6 +26,7 @@ export const EditProductForm = ({ title, description, _id }) => {
           console.log("Put from EditCardForm false", res.data.errors);
         } else {
           console.log(res);
+          window.location = "/dashboard";
         }
       })
       .catch((err) => {
@@ -29,10 +35,9 @@ export const EditProductForm = ({ title, description, _id }) => {
   };
 
   return (
-    <div>
+    <EditProductFormContainer>
       <form action="" onSubmit={postEdit} id="edit-product-form">
-        <input
-          type="text"
+        <TextInput
           name="title"
           placeholder="Nom du produit"
           onChange={(e) => {
@@ -41,8 +46,7 @@ export const EditProductForm = ({ title, description, _id }) => {
           value={editTitle}
         />
         <br />
-        <input
-          type="text"
+        <TextInput
           name="description"
           placeholder="Description du produit"
           onChange={(e) => {
@@ -51,8 +55,8 @@ export const EditProductForm = ({ title, description, _id }) => {
           value={editDescription}
         />
         <br />
-        <input type="submit" value="Submit ! "></input>
+        <SubmitInput type="submit" value="Submit !" />
       </form>
-    </div>
+    </EditProductFormContainer>
   );
 };

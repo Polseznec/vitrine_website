@@ -17,14 +17,6 @@ export const Row = styled.div`
     flex: 1;
   }
 `;
-export const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  & > div {
-    flex: 1;
-  }
-`;
 
 export const MediaRow = styled.div`
   display: flex;
@@ -34,5 +26,23 @@ export const MediaRow = styled.div`
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;
+  }
+`;
+
+export const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  & > div {
+    flex: 1;
+  }
+`;
+export const Center = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > div {
+    flex: 1;
   }
 `;

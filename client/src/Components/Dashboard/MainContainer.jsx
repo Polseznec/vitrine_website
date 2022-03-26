@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 
+//components
 import ProductCard from "./ProductCard";
 import { SelectedProduct } from "./SelectedProduct";
 import { Button } from "../Buttons";
@@ -82,7 +83,6 @@ export const MainContainer = ({ children, ...props }) => {
           <SelectedProduct _id={productTarget} />
         </StyledSelectedProductContainer>
       </MediaRow>
-
       {children}
     </StyleDashboardContainer>
   );
