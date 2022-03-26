@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
 
-import * as C from "../Containers/Containers.styles";
+import { EmailInput, PasswordInput, SubmitInput } from "../Inputs.jsx";
+import { BlocTitle } from "../Texts";
 
 function LogInForm() {
   const [email, setEmail] = React.useState("");
@@ -32,12 +33,11 @@ function LogInForm() {
   };
 
   return (
-    <C.Column>
-      <span>Ce connecter</span>
+    <div>
+      <BlocTitle title={"Ce connecter"} />
       <form action="" onSubmit={handelLogin} id="log-in-form">
         <label htmlFor="email">Email</label>
-        <input
-          type="text"
+        <EmailInput
           name="Email"
           id="email"
           onChange={(e) => {
@@ -46,8 +46,7 @@ function LogInForm() {
           value={email}
         />
         <label htmlFor="password">Mot de passe</label>
-        <input
-          type="password"
+        <PasswordInput
           name="password"
           id="password"
           onChange={(e) => {
@@ -55,9 +54,9 @@ function LogInForm() {
           }}
           value={password}
         />
-        <input type="submit" value="Se connecter"></input>
+        <SubmitInput value="Se connecter" />
       </form>
-    </C.Column>
+    </div>
   );
 }
 
