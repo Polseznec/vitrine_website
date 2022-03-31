@@ -32,8 +32,8 @@ export const MainContainer = ({ children, ...props }) => {
       });
   }, []);
 
-  const mappingProducts = products.map(
-    ({ title, description, main_picture, _id }, key) => {
+  const mappingProducts = products
+    .map(({ title, description, main_picture, _id }, key) => {
       const handleProduct = () => {
         setProductTarget(_id);
       };
@@ -47,8 +47,9 @@ export const MainContainer = ({ children, ...props }) => {
           onClick={handleProduct}
         />
       );
-    }
-  );
+    })
+    .reverse();
+
   const toHandleNewProduct = () => {
     setHandleNewProduct(!handleNewProduct);
   };
@@ -65,7 +66,9 @@ export const MainContainer = ({ children, ...props }) => {
       >
         Dashboard
       </h1>
+
       <Button title={"New Item"} onClick={toHandleNewProduct} />
+
       {handleNewProduct ? (
         <NewProduct
           backButton={() => {
@@ -83,6 +86,7 @@ export const MainContainer = ({ children, ...props }) => {
           <SelectedProduct _id={productTarget} />
         </StyledSelectedProductContainer>
       </MediaRow>
+
       {children}
     </StyleDashboardContainer>
   );
