@@ -3,13 +3,41 @@ const ObjectId = require("mongoose").Types.ObjectId;
 
 module.exports.createProduct = async function (req, res) {
   console.log(req.body);
-  const { title, description, main_picture } = req.body;
+  const {
+    title,
+    price,
+    description_part_one,
+    description_part_two,
+    height,
+    width,
+    depth,
+    type,
+    fabric_description,
+    available,
+    main_picture,
+    pattern_picture,
+    carrousel_one_picture,
+    carrousel_two_picture,
+    mood,
+  } = req.body;
 
   try {
     const product = await ProductModel.create({
       title,
-      description,
+      price,
+      description_part_one,
+      description_part_two,
+      height,
+      width,
+      depth,
+      type,
+      fabric_description,
+      available,
       main_picture,
+      pattern_picture,
+      carrousel_one_picture,
+      carrousel_two_picture,
+      mood,
     });
     res.status(201).json({
       product: product._id,
@@ -43,8 +71,20 @@ module.exports.updateProduct = function (req, res) {
 
   const data = {
     title: req.body.title,
-    description: req.body.description,
+    price: req.body.price,
+    description_part_one: req.body.description_part_one,
+    description_part_two: req.body.description_part_two,
+    height: req.body.height,
+    width: req.body.width,
+    depth: req.body.depth,
+    type: req.body.type,
+    fabric_description: req.body.fabric_description,
+    available: req.body.available,
     main_picture: req.body.main_picture,
+    pattern_picture: req.body.pattern_picture,
+    carrousel_one_picture: req.body.carrousel_one_picture,
+    carrousel_two_picture: req.body.carrousel_two_picture,
+    mood: req.body.mood,
   };
 
   ProductModel.findByIdAndUpdate(
