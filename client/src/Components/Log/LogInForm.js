@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import { EmailInput, PasswordInput, SubmitInput } from "../Inputs.jsx";
+import { EmailInput, PasswordInput, SubmitInput, Form } from "../Inputs.jsx";
 import { BlocTitle } from "../Texts";
 
 function LogInForm() {
@@ -35,8 +35,7 @@ function LogInForm() {
   return (
     <div>
       <BlocTitle title={"Ce connecter"} />
-      <form action="" onSubmit={handelLogin} id="log-in-form">
-        <label htmlFor="email">Email</label>
+      <Form action={""} onSubmit={handelLogin} id={"log-in-form"}>
         <EmailInput
           name="Email"
           id="email"
@@ -44,8 +43,9 @@ function LogInForm() {
             setEmail(e.target.value);
           }}
           value={email}
+          label={"Email "}
+          br
         />
-        <label htmlFor="password">Mot de passe</label>
         <PasswordInput
           name="password"
           id="password"
@@ -53,9 +53,11 @@ function LogInForm() {
             setPassword(e.target.value);
           }}
           value={password}
+          label={"Mot de passe "}
+          br
         />
         <SubmitInput value="Se connecter" />
-      </form>
+      </Form>
     </div>
   );
 }

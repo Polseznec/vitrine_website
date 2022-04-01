@@ -86,7 +86,6 @@ export const MainContainer = ({ children, ...props }) => {
           <SelectedProduct _id={productTarget} />
         </StyledSelectedProductContainer>
       </MediaRow>
-
       {children}
     </StyleDashboardContainer>
   );

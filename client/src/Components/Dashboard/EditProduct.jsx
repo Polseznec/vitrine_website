@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 
+//components
 import { Button } from "../Buttons";
 import { EditProductForm } from "./EditProductForm";
 import { Modal } from "../Modals";
@@ -88,8 +89,7 @@ export const EditProduct = ({
           <br />
           <span>Saison : {mood}</span>
           <br />
-
-          <span>Disponible ? : {available ? "Oui" : "non"}</span>
+          <span>Disponible ? : {available ? "Oui" : "Non"}</span>
           <br />
           <img src={main_picture} alt={title} style={{ maxHeight: "300px" }} />
           <br />

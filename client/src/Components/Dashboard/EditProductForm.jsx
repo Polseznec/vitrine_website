@@ -2,7 +2,17 @@ import React from "react";
 import axios from "axios";
 
 //components
-import { TextInput, NumberInput, SubmitInput, CheckboxeInput } from "../Inputs";
+import {
+  TextInput,
+  NumberInput,
+  SubmitInput,
+  CheckboxeInput,
+  SelectInput,
+  Form,
+} from "../Inputs";
+
+//Constant
+import { PRODUCTS_MOODS, PRODUCTS_TYPES } from "../CONSTANT";
 
 //styled
 import { EditProductFormContainer } from "../styles/Dashboard/EditProductFormContainer.styled";
@@ -63,7 +73,6 @@ export const EditProductForm = ({
       fabric_description: editFabricDescription,
       available: editAvailable,
       mood: editMood,
-
       main_picture: editMain,
       pattern_picture: editPattern,
       carrousel_one_picture: editCarrouselOne,
@@ -91,7 +100,7 @@ export const EditProductForm = ({
 
   return (
     <EditProductFormContainer>
-      <form action="" onSubmit={postEdit} id="edit-product-form">
+      <Form action={""} onSubmit={postEdit} id={"edit-product-form"}>
         <TextInput
           label={"Nom du produit"}
           name="title"
@@ -100,8 +109,8 @@ export const EditProductForm = ({
             setEditTitle(e.target.value);
           }}
           value={editTitle}
+          br
         />
-        <br />
         <TextInput
           label="Prix"
           name="price"
@@ -110,8 +119,9 @@ export const EditProductForm = ({
             setEditPrice(e.target.value);
           }}
           value={editPrice}
+          br
         />
-        <br />
+
         <TextInput
           label={"Description du produit (partie 1)"}
           name="description_part_one"
@@ -120,8 +130,9 @@ export const EditProductForm = ({
             setEditDescriptionPartOne(e.target.value);
           }}
           value={editDescriptionPartOne}
+          br
         />
-        <br />
+
         <TextInput
           label={"Description du produit (partie 2)"}
           name="description_part_two"
@@ -130,8 +141,9 @@ export const EditProductForm = ({
             setEditDescriptionPartTwo(e.target.value);
           }}
           value={editDescriptionPartTwo}
+          br
         />
-        <br />
+
         <NumberInput
           label={"Largeur"}
           name="width"
@@ -141,8 +153,9 @@ export const EditProductForm = ({
           }}
           value={editWidth}
           unit={"cm"}
+          br
         />
-        <br />
+
         <NumberInput
           label={"Hauteur"}
           name="height"
@@ -152,8 +165,9 @@ export const EditProductForm = ({
           }}
           value={editHeight}
           unit={"cm"}
+          br
         />
-        <br />
+
         <NumberInput
           label={"Profondeur"}
           name="depth"
@@ -163,22 +177,18 @@ export const EditProductForm = ({
           }}
           value={editDepth}
           unit={"cm"}
+          br
         />
-        <br />
-        <select
+
+        <SelectInput
           value={editType}
           onChange={(e) => {
             setEditType(e.target.value);
           }}
-        >
-          <option value="sac de ville">Sac de ville</option>
-          <option value="sac de shopping">Sac de shopping</option>
-          <option value="tote bag">Tote bag</option>
-          <option value="pochette">Pochette</option>
-          <option value="trousse">Trousse</option>
-          <option value="accessoire">Accessoire</option>
-        </select>
-        <br />
+          options={PRODUCTS_TYPES}
+          br
+        />
+
         <TextInput
           label={"Tissu utilisé"}
           name="fabric_description"
@@ -187,8 +197,9 @@ export const EditProductForm = ({
             setEditFabricDescription(e.target.value);
           }}
           value={editFabricDescription}
+          br
         />
-        <br />
+
         <CheckboxeInput
           label={"Disponible :"}
           name={"available"}
@@ -196,8 +207,9 @@ export const EditProductForm = ({
             setEditAvailable(!available);
           }}
           checked={editAvailable}
+          br
         />
-        <br />
+
         <div>
           <span>Photos</span>
           <br />
@@ -208,6 +220,7 @@ export const EditProductForm = ({
             onChange={(e) => {
               setEditMain(e.target.value);
             }}
+            br
           />
           <TextInput
             name={"pattern_picture"}
@@ -216,6 +229,7 @@ export const EditProductForm = ({
             onChange={(e) => {
               setEditPattern(e.target.value);
             }}
+            br
           />
           <TextInput
             name={"carrousel_one_picture"}
@@ -224,6 +238,7 @@ export const EditProductForm = ({
             onChange={(e) => {
               setEditCarrouselOne(e.target.value);
             }}
+            br
           />
           <TextInput
             name={"carrousel_two_picture"}
@@ -232,23 +247,20 @@ export const EditProductForm = ({
             onChange={(e) => {
               setEditCarrouslTwo(e.target.value);
             }}
+            br
           />
         </div>
-        <select
+
+        <SelectInput
           value={editMood}
           onChange={(e) => {
             setEditMood(e.target.value);
           }}
-        >
-          <option value="rien">rien</option>
-          <option value="été">été</option>
-          <option value="autonne">autonne</option>
-          <option value="hiver">hiver</option>
-          <option value="printemps">printemps</option>
-        </select>
-        <br />
+          options={PRODUCTS_MOODS}
+          br
+        />
         <SubmitInput type="submit" value="Submit !" />
-      </form>
+      </Form>
     </EditProductFormContainer>
   );
 };

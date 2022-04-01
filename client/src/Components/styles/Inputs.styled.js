@@ -1,7 +1,17 @@
 import styled from "styled-components";
 
 export const StyledTextInput = styled.input`
-  width: 100%;
+  width: auto;
+`;
+
+export const StyledInput = styled.input`
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid black;
+`;
+
+export const StyledForm = styled.form`
+  border: 1px solid black;
 `;
 
 export const StyledSubmitInput = styled.input`

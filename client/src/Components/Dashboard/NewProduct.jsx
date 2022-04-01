@@ -1,7 +1,18 @@
 import React from "react";
 import axios from "axios";
+
+//components
 import { Button } from "../Buttons";
-import { TextInput, NumberInput, SubmitInput } from "../Inputs";
+import {
+  TextInput,
+  NumberInput,
+  SubmitInput,
+  SelectInput,
+  Form,
+} from "../Inputs";
+
+//Constant
+import { PRODUCTS_MOODS, PRODUCTS_TYPES } from "../CONSTANT";
 
 //styled
 import { NewProductContainer } from "../styles/Dashboard/NewProductContainer.styled";
@@ -39,7 +50,6 @@ export const NewProduct = ({ backButton }) => {
       type: type,
       mood: mood,
       fabric_description: fabricDescription,
-
       main_picture: mainPhoto,
       pattern_picture: patternPhoto,
       carrousel_one_picture: carrouselOnePhoto,
@@ -69,13 +79,14 @@ export const NewProduct = ({ backButton }) => {
     <NewProductContainer>
       <Center>
         <BlocTitle title={"Add a new product"} />
-        <form action="" onSubmit={handelLogin} id="new-product-form">
+        <Form action={""} onSubmit={handelLogin} id={"new-product-form"}>
           <TextInput
             name="Nom"
             placeholder="Nom"
             onChange={(e) => {
               setTitle(e.target.value);
             }}
+            br
           />
           <NumberInput
             name="Prix"
@@ -83,74 +94,69 @@ export const NewProduct = ({ backButton }) => {
             onChange={(e) => {
               setPrice(e.target.value);
             }}
+            br
           />
-          <br />
+
           <TextInput
             name="DescriptionPartOne"
             placeholder="DescriptionPartOne"
             onChange={(e) => {
               setDescriptionPartOne(e.target.value);
             }}
+            br
           />
-          <br />
+
           <TextInput
             name="DescriptionPartTwo"
             placeholder="DescriptionPartTwo"
             onChange={(e) => {
               setDescriptionPartTwo(e.target.value);
             }}
+            br
           />
-          <br />
+
           <NumberInput
             name="height"
             placeholder="height"
             onChange={(e) => {
               setHeight(e.target.value);
             }}
+            br
           />
-          <br />
+
           <NumberInput
             name="width"
             placeholder="width"
             onChange={(e) => {
               setWidth(e.target.value);
             }}
+            br
           />
-          <br />
+
           <NumberInput
             name="depth"
             placeholder="depth"
             onChange={(e) => {
               setDepth(e.target.value);
             }}
+            br
           />
-          <br />
-          <select
-            onChange={(e) => {
-              setType(e.target.value);
-            }}
-          >
-            <option value="Sac de ville">Sac de ville</option>
-            <option value="Sac de shopping">Sac de shopping</option>
-            <option value="Tote bag">Tote bag</option>
-            <option value="Pochette">Pochette</option>
-            <option value="Trousse">Trousse</option>
-            <option value="Accessoire">Accessoire</option>
-          </select>
-          <br />
-          <select
-            name="mood"
+
+          <SelectInput
+            name={"type"}
+            onChange={(e) => setType(e.target.value)}
+            options={PRODUCTS_TYPES}
+            br
+          />
+
+          <SelectInput
+            name={"mood"}
             onChange={(e) => {
               setMood(e.target.value);
             }}
-          >
-            <option value="rien">rien</option>
-            <option value="été">été</option>
-            <option value="autonne">autonne</option>
-            <option value="hiver">hiver</option>
-            <option value="printemps">printemps</option>
-          </select>
-          <br />
+            options={PRODUCTS_MOODS}
+            br
+          />
           <TextInput
             name="fabricdescription"
             placeholder="fabricdescription"
@@ -160,12 +166,14 @@ export const NewProduct = ({ backButton }) => {
           />
           <br />
           <span>Photos</span>
+          <br />
           <TextInput
             name="main_picture"
             placeholder="Photo Principale"
             onChange={(e) => {
               setMainPhoto(e.target.value);
             }}
+            br
           />
           <TextInput
             name="pattern_picture"
@@ -173,6 +181,7 @@ export const NewProduct = ({ backButton }) => {
             onChange={(e) => {
               setPatternPhoto(e.target.value);
             }}
+            br
           />
           <TextInput
             name="carrousel_one_picture"
@@ -180,6 +189,7 @@ export const NewProduct = ({ backButton }) => {
             onChange={(e) => {
               setCarrouselOnePhoto(e.target.value);
             }}
+            br
           />
           <TextInput
             name="carrousel_two_picture"
@@ -192,7 +202,7 @@ export const NewProduct = ({ backButton }) => {
           <br />
           <SubmitInput value="Submit !" />
           <Button onClick={backButton} title={"Annuler"} />
-        </form>
+        </Form>
       </Center>
     </NewProductContainer>
   );
