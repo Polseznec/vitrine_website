@@ -5,6 +5,7 @@ module.exports.createProduct = async function (req, res) {
   console.log(req.body);
   const {
     title,
+    price,
     description_part_one,
     description_part_two,
     height,
@@ -17,11 +18,13 @@ module.exports.createProduct = async function (req, res) {
     pattern_picture,
     carrousel_one_picture,
     carrousel_two_picture,
+    mood,
   } = req.body;
 
   try {
     const product = await ProductModel.create({
       title,
+      price,
       description_part_one,
       description_part_two,
       height,
@@ -34,6 +37,7 @@ module.exports.createProduct = async function (req, res) {
       pattern_picture,
       carrousel_one_picture,
       carrousel_two_picture,
+      mood,
     });
     res.status(201).json({
       product: product._id,
@@ -67,6 +71,7 @@ module.exports.updateProduct = function (req, res) {
 
   const data = {
     title: req.body.title,
+    price: req.body.price,
     description_part_one: req.body.description_part_one,
     description_part_two: req.body.description_part_two,
     height: req.body.height,
@@ -79,6 +84,7 @@ module.exports.updateProduct = function (req, res) {
     pattern_picture: req.body.pattern_picture,
     carrousel_one_picture: req.body.carrousel_one_picture,
     carrousel_two_picture: req.body.carrousel_two_picture,
+    mood: req.body.mood,
   };
 
   ProductModel.findByIdAndUpdate(

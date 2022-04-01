@@ -31,12 +31,14 @@ export const SelectedProduct = ({ _id }) => {
         <div>
           <EditProduct
             title={product.title}
+            price={product.price}
             description_part_one={product.description_part_one}
             description_part_two={product.description_part_two}
             width={product.width}
             height={product.height}
             depth={product.depth}
             type={product.type}
+            mood={product.mood}
             fabric_description={product.fabric_description}
             available={product.available}
             _id={product._id}

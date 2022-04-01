@@ -7,6 +7,11 @@ const productSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    price: {
+      type: Number,
+      required: true,
+      trim: true,
+    },
     description_part_one: {
       type: String,
       required: true,
@@ -18,17 +23,17 @@ const productSchema = new mongoose.Schema(
       trim: true,
     },
     height: {
-      type: String,
+      type: Number,
       required: true,
       trim: true,
     },
     width: {
-      type: String,
+      type: Number,
       required: true,
       trim: true,
     },
     depth: {
-      type: String,
+      type: Number,
       required: true,
       trim: true,
     },
@@ -67,6 +72,11 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
       default: "./uploads/product/product_default.png",
+    },
+    mood: {
+      type: String,
+      required: false,
+      trim: true,
     },
   },
   {
