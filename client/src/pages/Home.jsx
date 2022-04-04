@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { UserIdContext } from "../Components/AppContext";
 
+//components
 import { ProductsContainer } from "../Components/Home/ProductsContainer";
 import HeaderContainer from "../Components/Home/HeaderContainer";
 import FooterContainer from "../Components/Home/FooterContainer";

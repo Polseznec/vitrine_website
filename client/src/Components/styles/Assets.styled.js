@@ -11,3 +11,7 @@ export const VerticalLine = styled.div`
   width: ${({ width }) => width || "1px"};
   background-color: ${({ bgColor }) => bgColor || "black"};
 `;
+
+export const Logo = styled.img`
+  height: ${({ height }) => height || "500px"};
+`;

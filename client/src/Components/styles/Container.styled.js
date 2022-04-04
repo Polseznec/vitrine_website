@@ -25,3 +25,29 @@ export const StyledFooterContainer = styled.div`
   background-color: black;
   color: #f1f1f1;
 `;
+
+export const TitleHeaderContainer = styled.div`
+  padding-top: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  & img {
+  }
+  & h1 {
+    margin-top: -110px;
+    font-size: 40px;
+    text-transform: uppercase;
+    transform: rotate(-5deg);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    margin-top: 120px;
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    background-color: rgba(238, 130, 238, 0.2);
+  }
+`;
