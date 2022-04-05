@@ -2,10 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { UserIdContext } from "../Components/AppContext";
 
+//components
 import { ProductsContainer } from "../Components/Home/ProductsContainer";
 import HeaderContainer from "../Components/Home/HeaderContainer";
 import FooterContainer from "../Components/Home/FooterContainer";
 import { Button } from "../Components/Buttons";
+import Marquee from "../Components/Home/Marquee";
 
 //styled
 import { FullScreenContainer } from "../Components/styles/Container.styled";
@@ -42,6 +44,7 @@ function Home() {
   return (
     <FullScreenContainer>
       <HeaderContainer />
+      <Marquee />
       <ProductsContainer />
       <FooterContainer />
       {UserId ? <AdminBtn /> : null}

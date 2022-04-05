@@ -20,8 +20,38 @@ export const StyledHeaderContainer = styled.div`
 `;
 
 export const StyledFooterContainer = styled.div`
-  min-height: 50vh;
+  min-height: 100px;
   min-width: 100vw;
   background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
   color: #f1f1f1;
+  font-size: 11px;
+`;
+
+export const TitleHeaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  & img {
+  }
+  & h1 {
+    margin-top: -110px;
+    font-size: 40px;
+    text-transform: uppercase;
+    transform: rotate(-5deg);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    margin-top: 120px;
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    background-color: rgba(238, 130, 238, 0.2);
+  }
 `;

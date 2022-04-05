@@ -1,6 +1,11 @@
 import React from "react";
 import axios from "axios";
-import ProductCard from "../Dashboard/ProductCard";
+
+//components
+import ProductCard from "../Home/ProductCard";
+
+//styled
+import { GridProductsContainer } from "../styles/Home/ProductsContainer.styled";
 
 export const ProductsContainer = () => {
   const [products, setProducts] = React.useState([]);
@@ -23,22 +28,28 @@ export const ProductsContainer = () => {
   }, []);
 
   const cardMappping = products.map(
-    ({ title, description, main_picture, _id }, key) => {
+    ({ title, price, main_picture, _id, ...props }, key) => {
       const handleProduct = () => {
         setProductTarget(_id);
       };
+
       return (
         <ProductCard
           title={title}
-          description={description}
           main_picture={main_picture}
           id={_id}
           key={key}
+          price={price}
           onClick={handleProduct}
+          {...props}
         />
       );
     }
   );
 
-  return <div>{cardMappping}</div>;
+  return (
+    <GridProductsContainer>{cardMappping}</GridProductsContainer>
+
+    //
+  );
 };
