@@ -20,14 +20,18 @@ export const StyledHeaderContainer = styled.div`
 `;
 
 export const StyledFooterContainer = styled.div`
-  min-height: 50vh;
+  min-height: 100px;
   min-width: 100vw;
   background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
   color: #f1f1f1;
+  font-size: 11px;
 `;
 
 export const TitleHeaderContainer = styled.div`
-  padding-top: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
