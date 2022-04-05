@@ -26,3 +26,7 @@ export const Center = styled(Flex)`
   align-items: center;
   justify-content: center;
 `;
+
+export const SpaceBetween = styled(Flex)`
+  justify-content: space-between;
+`;

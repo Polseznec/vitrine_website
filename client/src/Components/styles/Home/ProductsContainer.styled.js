@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const GridProductsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
-  padding: 20px 20px;
+  grid-gap: 40px;
+  padding: 20px 0px;
   max-width: 1300px;
-  margin: 10px 50px;
+  margin-top: 10px;
 `;
 
 export const Card = styled.div`

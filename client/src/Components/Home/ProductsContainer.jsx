@@ -10,7 +10,16 @@ import {
   StyledProductsContainer,
   HeaderContainer,
   TitleSection,
+  FilterContainer,
 } from "../styles/Home/StyledProductsContainer";
+import { theme } from "../styles/_Theme.styled";
+
+//constant
+import { PRODUCTS_TYPES } from "../CONSTANT";
+
+//function
+import { toCapitalize as TC } from "../fonctions";
+import { VerticalLine } from "../styles/Assets.styled";
 
 export const ProductsContainer = () => {
   const [products, setProducts] = React.useState([]);
@@ -31,6 +40,8 @@ export const ProductsContainer = () => {
         console.log(err);
       });
   }, []);
+
+  console.log(PRODUCTS_TYPES);
 
   const cardMappping = products.map(
     ({ title, price, main_picture, _id, ...props }, key) => {
@@ -54,8 +65,19 @@ export const ProductsContainer = () => {
 
   return (
     <StyledProductsContainer>
+      <TitleSection>Mes créations</TitleSection>
       <HeaderContainer>
-        <TitleSection>Articles</TitleSection>
+        <FilterContainer>
+          <div>
+            <VerticalLine color={theme.color.secondary} />
+            <span style={{ color: theme.color.secondary }} width={"100%"}>
+              {TC("tous les produits")}
+            </span>
+          </div>
+          {PRODUCTS_TYPES.map((type, key) => {
+            return <span key={key}>{TC(type)}</span>;
+          })}
+        </FilterContainer>
       </HeaderContainer>
       <GridProductsContainer>{cardMappping}</GridProductsContainer>
     </StyledProductsContainer>
