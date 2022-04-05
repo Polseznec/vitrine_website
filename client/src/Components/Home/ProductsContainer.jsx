@@ -6,6 +6,11 @@ import ProductCard from "../Home/ProductCard";
 
 //styled
 import { GridProductsContainer } from "../styles/Home/ProductsContainer.styled";
+import {
+  StyledProductsContainer,
+  HeaderContainer,
+  TitleSection,
+} from "../styles/Home/StyledProductsContainer";
 
 export const ProductsContainer = () => {
   const [products, setProducts] = React.useState([]);
@@ -48,8 +53,11 @@ export const ProductsContainer = () => {
   );
 
   return (
-    <GridProductsContainer>{cardMappping}</GridProductsContainer>
-
-    //
+    <StyledProductsContainer>
+      <HeaderContainer>
+        <TitleSection>Articles</TitleSection>
+      </HeaderContainer>
+      <GridProductsContainer>{cardMappping}</GridProductsContainer>
+    </StyledProductsContainer>
   );
 };

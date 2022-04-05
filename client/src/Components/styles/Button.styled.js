@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "./_Theme.styled";
 
 export const StyledButton = styled.button`
   border: 2px solid;
@@ -7,7 +8,7 @@ export const StyledButton = styled.button`
   font-weight: 700;
   padding: 15px 60px;
   background-color: ${({ bg }) => bg || "transparent"};
-  color: ${({ color }) => color || "#000000"};
+  color: ${({ color }) => color || theme.color.secondary};
   transition-duration: 0.2s;
   &:hover {
     transform: scale(0.98);

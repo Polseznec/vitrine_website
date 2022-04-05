@@ -5,6 +5,7 @@ import {
   MarqueeContainer,
   StyledMarquee,
 } from "../styles/Home/StyledMarquee.styled";
+
 import { HorizontalLine } from "../styles/Assets.styled";
 
 export default function Marquee() {
