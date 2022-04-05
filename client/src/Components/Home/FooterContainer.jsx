@@ -6,13 +6,14 @@ import { StyledFooterContainer } from "../styles/Container.styled";
 import { toCapitalize as TC } from "../fonctions";
 
 const FooterContainer = () => {
+  console.log("email", process.env.SELLER_EMAIL);
   return (
     <StyledFooterContainer>
       <p>{TC("Qui suis-je ?")}</p>
       <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
         {TC("Instagram")}
       </a>
-      <a href="mailto:seznecpol@gmail.com" target="_blank" rel="noreferrer">
+      <a href={process.env.SELLER_EMAIL} target="_blank" rel="noreferrer">
         {TC("Envoyer moi un mail !")}
       </a>
     </StyledFooterContainer>
