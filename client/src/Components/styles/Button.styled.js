@@ -16,3 +16,7 @@ export const StyledButton = styled.button`
     transform: scale(0.98);
   }
 `;
+
+export const StyledCrossButton = styled.img`
+  cursor: pointer;
+`;

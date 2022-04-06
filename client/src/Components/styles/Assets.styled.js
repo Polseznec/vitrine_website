@@ -16,3 +16,10 @@ export const VerticalLine = styled.div`
 export const Logo = styled.img`
   height: ${({ height }) => height || "500px"};
 `;
+
+export const Circle = styled.div`
+  max-width: ${({ size }) => size || "100%"};
+  max-height: ${({ size }) => size || "100%"};
+  border-radius: 50%;
+  background-color: ${({ bgColor }) => bgColor || theme.color.black};
+`;

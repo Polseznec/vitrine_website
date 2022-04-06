@@ -3,6 +3,7 @@ import axios from "axios";
 
 //components
 import ProductCard from "../Home/ProductCard";
+import ProductModal from "./Product/ProductModal";
 
 //styled
 import { GridProductsContainer } from "../styles/Home/ProductsContainer.styled";
@@ -23,9 +24,13 @@ import { VerticalLine } from "../styles/Assets.styled";
 
 export const ProductsContainer = () => {
   const [products, setProducts] = React.useState([]);
-  const [productTarget, setProductTarget] = React.useState("");
+  const [productTarget, setProductTarget] = React.useState(null);
 
   console.log(productTarget);
+
+  const hiddenModal = () => {
+    setProductTarget(null);
+  };
 
   React.useEffect(() => {
     axios({
@@ -41,7 +46,7 @@ export const ProductsContainer = () => {
       });
   }, []);
 
-  console.log(PRODUCTS_TYPES);
+  // console.log(PRODUCTS_TYPES);
 
   const cardMappping = products.map(
     ({ title, price, main_picture, _id, ...props }, key) => {
@@ -80,6 +85,9 @@ export const ProductsContainer = () => {
         </FilterContainer>
       </HeaderContainer>
       <GridProductsContainer>{cardMappping}</GridProductsContainer>
+      {productTarget ? (
+        <ProductModal _id={productTarget} onClose={hiddenModal} />
+      ) : null}
     </StyledProductsContainer>
   );
 };
