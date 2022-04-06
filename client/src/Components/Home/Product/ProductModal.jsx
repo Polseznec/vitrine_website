@@ -45,6 +45,8 @@ function ProductModal({ _id, onClose }) {
   }, [_id]);
   console.log(product);
 
+  const BUTTONS = [];
+
   return (
     <FullScreenModal>
       <MainContainer>
