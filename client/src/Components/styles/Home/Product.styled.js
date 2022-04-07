@@ -5,6 +5,19 @@ import { Flex } from "../Flexbox.styled";
 
 export const MainContainer = styled.div`
   overflow-y: scroll;
+  animation: display 1.5s ease-in-out;
+
+  @keyframes display {
+    0% {
+      opacity: 0;
+    }
+    30% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 
 export const Header = styled(Flex)`

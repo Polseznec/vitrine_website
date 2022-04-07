@@ -12,12 +12,13 @@ export const Padding = styled.div`
 `;
 
 export const StyledFooterContainer = styled.div`
-  min-height: 100px;
+  min-height: 70px;
   min-width: 100vw;
-  background-color: black;
+  background-color: ${theme.color.black};
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 50px;
   padding: 0 60px;
   color: ${theme.color.white};
   font-size: 11px;

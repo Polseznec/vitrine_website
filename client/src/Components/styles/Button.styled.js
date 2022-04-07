@@ -20,3 +20,16 @@ export const StyledButton = styled.button`
 export const StyledCrossButton = styled.img`
   cursor: pointer;
 `;
+
+export const StyledTextButton = styled.span`
+  text-decoration: ${({ selecte }) => (selecte ? "none" : "line-through")};
+  text-decoration-color: ${theme.color.black};
+  color: ${({ color }) => color || theme.color.black};
+  transition: text-decoration-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    text-decoration-color: transparent;
+  }
+`;

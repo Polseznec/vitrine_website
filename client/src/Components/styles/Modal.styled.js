@@ -26,4 +26,14 @@ export const FullScreenModal = styled.div`
   z-index: 1000;
   border-top: 5px solid ${theme.color.black};
   background-color: ${theme.color.white};
+  animation: slider 0.5s ease-in-out;
+
+  @keyframes slider {
+    0% {
+      top: 100vh;
+    }
+    100% {
+      top: 0;
+    }
+  }
 `;
