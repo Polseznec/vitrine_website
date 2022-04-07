@@ -6,6 +6,7 @@ import {
   Img,
   InfoContainer,
 } from "../styles/Home/ProductsContainer.styled";
+
 //assets
 import { HorizontalLine } from "../styles/Assets.styled";
 

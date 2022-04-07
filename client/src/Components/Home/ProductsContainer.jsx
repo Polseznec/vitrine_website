@@ -80,19 +80,14 @@ export const ProductsContainer = () => {
       <TitleSection>Mes créations</TitleSection>
       <HeaderContainer>
         <FilterContainer>
-          <div>
-            <VerticalLine color={theme.color.secondary} />
-            <TextButton
-              text={TC("tous les produits")}
-              color={
-                filter === "all" ? theme.color.secondary : theme.color.black
-              }
-              onClick={() => {
-                setFilter("all");
-              }}
-              selecte={filter === "all" ? true : false}
-            />
-          </div>
+          <TextButton
+            text={TC("tous les produits")}
+            color={filter === "all" ? theme.color.secondary : theme.color.black}
+            onClick={() => {
+              setFilter("all");
+            }}
+            selecte={filter === "all" ? true : false}
+          />
           {PRODUCTS_TYPES.map((type, key) => {
             return (
               <TextButton

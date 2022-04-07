@@ -15,7 +15,6 @@ export const Button = ({ className, onClick, title, bg, color, ...props }) => {
       className={className}
       onClick={onClick}
       {...props}
-      //styled
       bg={bg}
       color={color}
     >

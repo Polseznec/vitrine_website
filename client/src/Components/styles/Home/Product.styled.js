@@ -3,21 +3,12 @@ import styled from "styled-components";
 //flex
 import { Flex } from "../Flexbox.styled";
 
+//keyframes
+import { displayOn } from "../_Keyframes.styled";
+
 export const MainContainer = styled.div`
   overflow-y: scroll;
-  animation: display 1.5s ease-in-out;
-
-  @keyframes display {
-    0% {
-      opacity: 0;
-    }
-    30% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+  animation: ${displayOn} 1.5s ease-in-out;
 `;
 
 export const Header = styled(Flex)`
@@ -26,21 +17,18 @@ export const Header = styled(Flex)`
   justify-content: flex-end;
   width: 100%;
   height: 70px;
-  /* background-color: yellow; */
   padding-right: 35px;
 `;
 
 export const DataContainer = styled(Flex)`
   width: 100%;
   min-height: calc(100% - 70px);
-  /* background-color: lightblue; */
 `;
 
 export const CarousellContainer = styled.div`
   height: 100%;
   width: 40%;
   padding: 0 20px;
-  /* background-color: lightcoral; */
 `;
 export const Displayer = styled.div`
   & img {
@@ -66,7 +54,6 @@ export const Selector = styled(Flex)`
 
 export const StaticContainer = styled.div`
   height: 100%;
-  /* background-color: lightgreen; */
   & img {
     display: block;
     width: 500px;
@@ -88,7 +75,6 @@ export const Paragraph = styled.span`
 export const Infos = styled(Flex)`
   padding-left: 20px;
   max-width: 35%;
-  /* background-color: red; */
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
