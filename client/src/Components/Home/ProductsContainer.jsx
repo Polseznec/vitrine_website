@@ -20,7 +20,6 @@ import { PRODUCTS_TYPES } from "../CONSTANT";
 
 //function
 import { toCapitalize as TC } from "../fonctions";
-import { VerticalLine } from "../styles/Assets.styled";
 
 export const ProductsContainer = () => {
   const [products, setProducts] = React.useState([]);
