@@ -16,6 +16,13 @@ const FooterContainer = () => {
       <a href={process.env.SELLER_EMAIL} target="_blank" rel="noreferrer">
         {TC("Envoyer moi un mail !")}
       </a>
+      {/* <button
+        onClick={() => {
+          window.open("mailto:test@example.com?subject=subject&body=body");
+        }}
+      >
+        Mail !
+      </button> */}
     </StyledFooterContainer>
   );
 };
