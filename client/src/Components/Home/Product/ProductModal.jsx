@@ -3,7 +3,7 @@ import axios from "axios";
 
 //components
 import { Button, CircleButton, CrossButton } from "../../Buttons";
-import MailModal from "../../mail/MailModal";
+import MailModal from "../../Mail/MailModal";
 
 //styled
 import { FullScreenModal } from "../../styles/Modal.styled";
@@ -110,12 +110,12 @@ function ProductModal({ _id, onClose }) {
                 <span>
                   {product.width} cm X {product.height} cm X {product.depth} cm
                 </span>
-                <Button
+                {/* <Button
                   title={"Je le veux !"}
                   onClick={() => {
                     setHandleModal(!handleModal);
                   }}
-                />
+                /> */}
                 {handleModal ? (
                   <MailModal closeModal={closeModal} product={product} />
                 ) : null}
