@@ -1,4 +1,5 @@
 import React from "react";
+import { Children } from "react/cjs/react.production.min";
 import { Button } from "./Buttons";
 
 //styled
@@ -11,15 +12,21 @@ export const Modal = ({
   btnCancelAction,
   onClickValidateAction,
   onClickCancelAction,
+  children,
   ...props
 }) => {
   return (
-    <StyledModal>
-      <div>{title}</div>
+    <StyledModal {...props}>
+      {title ? <div>{title}</div> : null}
       <br />
+      {children}
       <div>
-        <Button onClick={onClickValidateAction} title={btnValidateAction} />
-        <Button onClick={onClickCancelAction} title={btnCancelAction} />
+        {onClickValidateAction ? (
+          <Button onClick={onClickValidateAction} title={btnValidateAction} />
+        ) : null}
+        {onClickCancelAction ? (
+          <Button onClick={onClickCancelAction} title={btnCancelAction} />
+        ) : null}
       </div>
     </StyledModal>
   );

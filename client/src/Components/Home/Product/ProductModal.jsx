@@ -2,7 +2,8 @@ import React from "react";
 import axios from "axios";
 
 //components
-import { CircleButton, CrossButton } from "../../Buttons";
+import { Button, CircleButton, CrossButton } from "../../Buttons";
+import MailModal from "../../mail/MailModal";
 
 //styled
 import { FullScreenModal } from "../../styles/Modal.styled";
@@ -26,6 +27,7 @@ import { HorizontalLine } from "../../styles/Assets.styled";
 
 function ProductModal({ _id, onClose }) {
   const [product, setProduct] = React.useState({});
+  const [handleModal, setHandleModal] = React.useState(false);
 
   React.useEffect(() => {
     const fetshProduct = async () => {
@@ -43,9 +45,10 @@ function ProductModal({ _id, onClose }) {
     };
     fetshProduct();
   }, [_id]);
-  console.log(product);
 
-  const BUTTONS = [];
+  const closeModal = () => {
+    setHandleModal(false);
+  };
 
   return (
     <FullScreenModal>
@@ -107,6 +110,15 @@ function ProductModal({ _id, onClose }) {
                 <span>
                   {product.width} cm X {product.height} cm X {product.depth} cm
                 </span>
+                <Button
+                  title={"Je le veux !"}
+                  onClick={() => {
+                    setHandleModal(!handleModal);
+                  }}
+                />
+                {handleModal ? (
+                  <MailModal closeModal={closeModal} product={product} />
+                ) : null}
               </Infos>
             </BodyData>
           </StaticContainer>
