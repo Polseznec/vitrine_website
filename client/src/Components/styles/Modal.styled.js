@@ -18,7 +18,6 @@ export const StyledModal = styled.div`
 export const FullScreenModal = styled.div`
   width: 100vw;
   height: 100vh;
-  margin-top: 100px;
   position: fixed;
   left: 0;
   top: 0;

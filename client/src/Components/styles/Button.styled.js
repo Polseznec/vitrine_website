@@ -19,6 +19,8 @@ export const StyledButton = styled.button`
 
 export const StyledCrossButton = styled.img`
   cursor: pointer;
+  height: ${({ size }) => size || "50px"};
+  width: ${({ size }) => size || "50px"};
 `;
 
 export const StyledTextButton = styled.span`

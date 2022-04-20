@@ -13,13 +13,16 @@ import {
   DataContainer,
   CarousellContainer,
   StaticContainer,
-  BodyData,
   Description,
   Paragraph,
   Infos,
   Displayer,
   Selector,
   SelectorContainer,
+  PatternPhoto,
+  StaticHeader,
+  MoreProductContainer,
+  Image,
 } from "../../styles/Home/Product.styled";
 
 //assets
@@ -59,8 +62,9 @@ function ProductModal({ _id, onClose }) {
         <DataContainer>
           <CarousellContainer>
             <Displayer>
-              <img src={product.main_picture} alt="" />
+              <Image src={product.main_picture} alt="" />
             </Displayer>
+
             <SelectorContainer>
               <Selector>
                 <CircleButton
@@ -84,12 +88,14 @@ function ProductModal({ _id, onClose }) {
               </Selector>
             </SelectorContainer>
           </CarousellContainer>
+
           <StaticContainer>
-            <img
+            <PatternPhoto
               src={product.pattern_picture}
               alt={product.title + "image"}
-            ></img>
-            <Header>
+            ></PatternPhoto>
+
+            <StaticHeader>
               <span style={{ marginRight: "15%" }}>{product.title}</span>
               <HorizontalLine />
               {product.available === true ? (
@@ -97,31 +103,31 @@ function ProductModal({ _id, onClose }) {
               ) : (
                 <span style={{ marginLeft: "15%" }}>Plus disponilbe</span>
               )}
-            </Header>
-            <BodyData>
-              <Description>
-                <Paragraph>{product.description_part_one}</Paragraph>
-                <Paragraph>{product.description_part_two}</Paragraph>
-              </Description>
-              <Infos>
-                <span>{product.type}</span>
-                <span>{product.fabric_description}</span>
+            </StaticHeader>
 
-                <span>
-                  {product.width} cm X {product.height} cm X {product.depth} cm
-                </span>
-                {/* <Button
-                  title={"Je le veux !"}
-                  onClick={() => {
-                    setHandleModal(!handleModal);
-                  }}
-                /> */}
-                {handleModal ? (
-                  <MailModal closeModal={closeModal} product={product} />
-                ) : null}
-              </Infos>
-            </BodyData>
+            <Description>
+              <Paragraph>{product.description_part_one}</Paragraph>
+              <Paragraph>{product.description_part_two}</Paragraph>
+            </Description>
+            <Infos>
+              <span>{product.type}</span>
+              <span>{product.fabric_description}</span>
+
+              <span>
+                {product.width} cm X {product.height} cm X {product.depth} cm
+              </span>
+              <Button
+                title={"Je le veux !"}
+                onClick={() => {
+                  setHandleModal(!handleModal);
+                }}
+              />
+              {handleModal ? (
+                <MailModal closeModal={closeModal} product={product} />
+              ) : null}
+            </Infos>
           </StaticContainer>
+          <MoreProductContainer></MoreProductContainer>
         </DataContainer>
       </MainContainer>
     </FullScreenModal>

@@ -7,37 +7,45 @@ import { Flex } from "../Flexbox.styled";
 import { displayOn } from "../_Keyframes.styled";
 
 export const MainContainer = styled.div`
-  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 8fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 70vh;
   animation: ${displayOn} 1.5s ease-in-out;
 `;
 
 export const Header = styled(Flex)`
-  padding: 0 20px;
+  grid-area: 1 / 1 / 2 / 3;
   align-items: center;
   justify-content: flex-end;
-  width: 100%;
+  padding-right: 20px;
   height: 70px;
-  padding-right: 35px;
 `;
 
 export const DataContainer = styled(Flex)`
-  width: 100%;
-  min-height: calc(100% - 70px);
+  grid-area: 2 / 1 / 3 / 3;
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 5fr 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 `;
 
 export const CarousellContainer = styled.div`
-  height: 100%;
-  width: 40%;
-  padding: 0 20px;
+  max-height: 100%;
+  grid-area: 1 / 1 / 2 / 2;
 `;
 export const Displayer = styled.div`
-  & img {
-    display: block;
-    width: 100%;
-    max-height: 500px;
-    min-height: 400px;
-    object-fit: cover;
-  }
+  max-height: 100%;
+`;
+
+export const Image = styled.img`
+  display: block;
+  max-width: 50%;
+  object-fit: cover;
 `;
 
 export const SelectorContainer = styled.div`
@@ -45,6 +53,7 @@ export const SelectorContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 export const Selector = styled(Flex)`
   height: 60px;
   justify-content: space-around;
@@ -53,33 +62,57 @@ export const Selector = styled(Flex)`
 `;
 
 export const StaticContainer = styled.div`
-  height: 100%;
-  & img {
-    display: block;
-    width: 500px;
-    height: 100px;
-    object-fit: cover;
-  }
+  grid-area: 1 / 2 / 2 / 3;
+
+  height: calc(100vh - 70px);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 `;
-export const BodyData = styled(Flex)``;
+export const PatternPhoto = styled.img`
+  grid-area: 1 / 1 / 2 / 3;
+  display: block;
+  width: 100%;
+  max-height: 100px;
+  object-fit: cover;
+`;
+
+export const StaticHeader = styled(Flex)`
+  grid-area: 2 / 1 / 3 / 3;
+  padding-right: 20px;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  min-height: 50px;
+  max-height: 50px;
+  font-size: 20px;
+`;
 
 export const Description = styled(Flex)`
+  grid-area: 3 / 1 / 4 / 2;
+
   align-items: flex-start;
   flex-direction: column;
 `;
 
 export const Paragraph = styled.span`
-  padding: 20px;
+  padding-right: 20px;
 `;
 
 export const Infos = styled(Flex)`
-  padding-left: 20px;
-  max-width: 35%;
+  grid-area: 3 / 2 / 4 / 3;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  padding-bottom: 20%;
+
   & span {
     margin-bottom: 5px;
+    font-size: 14px;
   }
+`;
+
+export const MoreProductContainer = styled.div`
+  grid-area: 2 / 1 / 3 / 3;
 `;
