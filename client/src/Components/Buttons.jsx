@@ -44,6 +44,8 @@ export const CrossButton = ({ onClick, props }) => {
   );
 };
 
-export const CircleButton = ({ onClick, size, props }) => {
-  return <Circle onClick={onClick} size={size} {...props}></Circle>;
+export const CircleButton = ({ onClick, size, active, props }) => {
+  return (
+    <Circle onClick={onClick} size={size} active={active} {...props}></Circle>
+  );
 };

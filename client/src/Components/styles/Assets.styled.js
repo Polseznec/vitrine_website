@@ -18,8 +18,10 @@ export const Logo = styled.img`
 `;
 
 export const Circle = styled.div`
+  cursor: pointer;
   max-width: ${({ size }) => size || "100%"};
   max-height: ${({ size }) => size || "100%"};
   border-radius: 50%;
-  background-color: ${({ bgColor }) => bgColor || theme.color.black};
+  background-color: ${({ active }) => (active ? "grey" : theme.color.black)};
+  transform: ${({ active }) => (active ? "scale(1.05)" : "scale(0.9)")};
 `;

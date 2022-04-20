@@ -39,12 +39,15 @@ export const CarousellContainer = styled.div`
   grid-area: 1 / 1 / 2 / 2;
 `;
 export const Displayer = styled.div`
-  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Image = styled.img`
   display: block;
-  max-width: 50%;
+  max-width: 100%;
+  max-height: 600px;
   object-fit: cover;
 `;
 
