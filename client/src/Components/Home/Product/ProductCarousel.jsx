@@ -17,6 +17,21 @@ function ProductCarousel({ product }) {
     product.carrousel_two_picture,
   ];
 
+  // React.useEffect(() => {
+  //   let timer = setTimeout(() => {
+  //     if (current === IMAGES.length - 1) {
+  //       setCurrent(0);
+  //     } else {
+  //       let currentValue = current;
+  //       setCurrent((currentValue += 1));
+  //     }
+  //   }, 4000);
+
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [current]);
+
   const imagesMapping = IMAGES.map((image, index) => {
     return (
       <Displayer key={index}>
@@ -25,7 +40,7 @@ function ProductCarousel({ product }) {
     );
   });
 
-  const btnMapping = IMAGES.map((image, index) => {
+  const btnsMapping = IMAGES.map((image, index) => {
     return (
       <CircleButton
         onClick={() => {
@@ -41,7 +56,7 @@ function ProductCarousel({ product }) {
     <CarousellContainer>
       {imagesMapping}
       <SelectorContainer>
-        <Selector>{btnMapping}</Selector>
+        <Selector>{btnsMapping}</Selector>
       </SelectorContainer>
     </CarousellContainer>
   );
