@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 //components
-import { Button, CircleButton, CrossButton } from "../../Buttons";
+import { Button, CrossButton } from "../../Buttons";
 import MailModal from "../../Mail/MailModal";
 
 //styled
@@ -11,22 +11,18 @@ import {
   MainContainer,
   Header,
   DataContainer,
-  CarousellContainer,
   StaticContainer,
   Description,
   Paragraph,
   Infos,
-  Displayer,
-  Selector,
-  SelectorContainer,
   PatternPhoto,
   StaticHeader,
   MoreProductContainer,
-  Image,
 } from "../../styles/Home/Product.styled";
 
 //assets
 import { HorizontalLine } from "../../styles/Assets.styled";
+import ProductCarousel from "./ProductCarousel";
 
 function ProductModal({ _id, onClose }) {
   const [product, setProduct] = React.useState({});
@@ -60,34 +56,7 @@ function ProductModal({ _id, onClose }) {
           <CrossButton onClick={onClose} />
         </Header>
         <DataContainer>
-          <CarousellContainer>
-            <Displayer>
-              <Image src={product.main_picture} alt="" />
-            </Displayer>
-
-            <SelectorContainer>
-              <Selector>
-                <CircleButton
-                  onClick={() => {
-                    console.log("BTN 1");
-                  }}
-                  size={"20px"}
-                />
-                <CircleButton
-                  onClick={() => {
-                    console.log("BTN 2");
-                  }}
-                  size={"20px"}
-                />
-                <CircleButton
-                  onClick={() => {
-                    console.log("BTN 3");
-                  }}
-                  size={"20px"}
-                />
-              </Selector>
-            </SelectorContainer>
-          </CarousellContainer>
+          <ProductCarousel product={product} />
 
           <StaticContainer>
             <PatternPhoto
