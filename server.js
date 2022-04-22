@@ -34,7 +34,18 @@ app.use(
 app.use(express.static(path.join(__dirname, "../client/build")));
 
 app.use(cookieParser());
+app.use((req, res, next) => {
+  res.status(404).json({
+    message: `The ressource you're trying to request doesn't exist. Method: ${req.method} path: ${req.originalUrl}`,
+  });
+});
 
+if (process.env.NODE_ENV === "production") {
+  app.use("*", (req, res, next) => {
+    // If no routes match, send them the React HTML.
+    res.sendFile(__dirname + "/public/index.html");
+  });
+}
 //jwt
 app.get("*", checkUser);
 app.get("/jwtid", requireAuth, (req, res) => {
