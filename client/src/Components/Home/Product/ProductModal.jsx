@@ -18,11 +18,15 @@ import {
   PatternPhoto,
   StaticHeader,
   MoreProductContainer,
+  PatternPhotoContainer,
 } from "../../styles/Home/Product.styled";
+import { Column } from "../../styles/Flexbox.styled";
 
 //assets
 import { HorizontalLine } from "../../styles/Assets.styled";
 import ProductCarousel from "./ProductCarousel";
+import { H4, Span } from "../../styles/Texts.styled";
+import { theme } from "../../styles/_Theme.styled";
 
 function ProductModal({ _id, onClose }) {
   const [product, setProduct] = React.useState({});
@@ -59,11 +63,12 @@ function ProductModal({ _id, onClose }) {
           <ProductCarousel product={product} />
 
           <StaticContainer>
-            <PatternPhoto
-              src={product.pattern_picture}
-              alt={product.title + "image"}
-            ></PatternPhoto>
-
+            <PatternPhotoContainer>
+              <PatternPhoto
+                src={product.pattern_picture}
+                alt={product.title + "image"}
+              />
+            </PatternPhotoContainer>
             <StaticHeader>
               <span style={{ marginRight: "15%" }}>{product.title}</span>
               <HorizontalLine />
@@ -78,23 +83,34 @@ function ProductModal({ _id, onClose }) {
               <Paragraph>{product.description_part_one}</Paragraph>
               <Paragraph>{product.description_part_two}</Paragraph>
             </Description>
-            <Infos>
-              <span>{product.type}</span>
-              <span>{product.fabric_description}</span>
 
-              <span>
-                {product.width} cm X {product.height} cm X {product.depth} cm
-              </span>
-              <Button
-                title={"Je le veux !"}
-                onClick={() => {
-                  setHandleModal(!handleModal);
-                }}
-              />
-              {handleModal ? (
-                <MailModal closeModal={closeModal} product={product} />
-              ) : null}
+            <Infos>
+              <H4 color={theme.color.black} size={"1.5em"}>
+                {product.price} €
+              </H4>
+              <Column style={{ paddingTop: "20px" }}>
+                <Span>{product.type}</Span>
+                <Span>{product.fabric_description}</Span>
+                <Span>
+                  {product.width} cm X {product.height} cm X {product.depth} cm
+                </Span>
+              </Column>
+
+              {product.available === true ? (
+                <Button
+                  title={"Je le veux !"}
+                  onClick={() => {
+                    setHandleModal(!handleModal);
+                  }}
+                />
+              ) : (
+                <div style={{ padding: "15px 60px", backgroundColor: "red" }} />
+              )}
             </Infos>
+
+            {handleModal ? (
+              <MailModal closeModal={closeModal} product={product} />
+            ) : null}
           </StaticContainer>
           <MoreProductContainer></MoreProductContainer>
         </DataContainer>

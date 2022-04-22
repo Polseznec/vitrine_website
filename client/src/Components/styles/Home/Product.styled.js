@@ -5,6 +5,8 @@ import { Flex } from "../Flexbox.styled";
 
 //keyframes
 import { displayOn } from "../_Keyframes.styled";
+//theme
+import { theme } from "../_Theme.styled";
 
 export const MainContainer = styled.div`
   display: grid;
@@ -66,7 +68,6 @@ export const Selector = styled(Flex)`
 
 export const StaticContainer = styled.div`
   grid-area: 1 / 2 / 2 / 3;
-
   height: calc(100vh - 70px);
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -74,12 +75,31 @@ export const StaticContainer = styled.div`
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 `;
-export const PatternPhoto = styled.img`
+export const PatternPhotoContainer = styled.div`
+  width: 100%;
+  height: 100px;
+  position: relative;
   grid-area: 1 / 1 / 2 / 3;
+`;
+export const PatternPhoto = styled.img`
+  position: absolute;
   display: block;
   width: 100%;
   max-height: 100px;
   object-fit: cover;
+`;
+export const PriceDisplayer = styled.div`
+  position: absolute;
+  width: auto;
+  height: 100%;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  & div {
+    background-color: blue;
+    padding: 5px;
+  }
 `;
 
 export const StaticHeader = styled(Flex)`
@@ -95,24 +115,24 @@ export const StaticHeader = styled(Flex)`
 
 export const Description = styled(Flex)`
   grid-area: 3 / 1 / 4 / 2;
-
   align-items: flex-start;
   flex-direction: column;
 `;
 
 export const Paragraph = styled.span`
-  padding-right: 20px;
+  padding: 10px 0px;
 `;
 
 export const Infos = styled(Flex)`
   grid-area: 3 / 2 / 4 / 3;
-  align-items: flex-start;
-  justify-content: center;
+  height: 100%;
   flex-direction: column;
+  padding: 10px;
 
   & span {
+    color: ${theme.color.black};
     margin-bottom: 5px;
-    font-size: 14px;
+    text-transform: capitalize;
   }
 `;
 
