@@ -5,8 +5,6 @@ import { Flex } from "../Flexbox.styled";
 
 //keyframes
 import { displayOn } from "../_Keyframes.styled";
-//theme
-import { theme } from "../_Theme.styled";
 
 export const MainContainer = styled.div`
   display: grid;

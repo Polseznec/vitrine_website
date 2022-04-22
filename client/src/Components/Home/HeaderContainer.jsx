@@ -9,7 +9,6 @@ import { HorizontalLine } from "../styles/Assets.styled";
 import { HeaderTitle } from "../styles/Texts.styled";
 import { Bottom } from "../styles/Position.styled";
 import { Logo } from "../styles/Assets.styled";
-import { Button } from "../Buttons";
 
 //assets
 import lili_logo from "../../assets/svg/logo_lili_circle_filled.svg";

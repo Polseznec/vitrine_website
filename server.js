@@ -3,6 +3,7 @@ const cookieParser = require("cookie-parser");
 const userRoutes = require("./routes/user.routes");
 const productRoutes = require("./routes/product.routes");
 const mailRoutes = require("./routes/mail.routes");
+const path = require("path");
 
 require("dotenv").config({
   path: "./config/.env",
@@ -10,7 +11,6 @@ require("dotenv").config({
 require("./config/db");
 const { checkUser, requireAuth } = require("./middleware/auth.middleware");
 const cors = require("cors");
-
 const app = express();
 
 //cors
@@ -31,6 +31,8 @@ app.use(
     extended: false,
   })
 );
+app.use(express.static(path.join(__dirname, "../client/build")));
+
 app.use(cookieParser());
 
 //jwt
