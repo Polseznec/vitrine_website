@@ -15,5 +15,5 @@ export const H4 = styled.h4`
 
 export const Span = styled.span`
   font-size: 14px;
-  color: ${({ color }) => color || theme.color.white};
+  color: ${({ color }) => color || theme.color.black};
 `;

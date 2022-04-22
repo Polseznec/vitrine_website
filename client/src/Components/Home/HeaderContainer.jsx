@@ -23,7 +23,7 @@ const HeaderContainer = () => {
         <HeaderTitle>Vous fait les poches</HeaderTitle>
 
         <br />
-        <Button title={`Voir les articles`} style={{ marginTop: "100px" }} />
+        {/* <Button title={`Voir les articles`} style={{ marginTop: "100px" }} /> */}
       </Title>
 
       <Bottom style={{ position: "absolute" }}>

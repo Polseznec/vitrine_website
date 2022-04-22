@@ -75,7 +75,7 @@ function ProductModal({ _id, onClose }) {
               {product.available === true ? (
                 <span style={{ marginLeft: "15%" }}>Disponible</span>
               ) : (
-                <span style={{ marginLeft: "15%" }}>Plus disponilbe</span>
+                <span style={{ marginLeft: "15%" }}>Plus disponilbe 😢</span>
               )}
             </StaticHeader>
 
@@ -85,8 +85,16 @@ function ProductModal({ _id, onClose }) {
             </Description>
 
             <Infos>
-              <H4 color={theme.color.black} size={"1.5em"}>
-                {product.price} €
+              <H4
+                color={theme.color.black}
+                size={"1.5em"}
+                style={
+                  product.available === false
+                    ? { textDecoration: "line-through" }
+                    : null
+                }
+              >
+                {product.price}€
               </H4>
               <Column style={{ paddingTop: "20px" }}>
                 <Span>{product.type}</Span>
@@ -104,7 +112,7 @@ function ProductModal({ _id, onClose }) {
                   }}
                 />
               ) : (
-                <div style={{ padding: "15px 60px", backgroundColor: "red" }} />
+                <div style={{ padding: "15px 60px" }} />
               )}
             </Infos>
 

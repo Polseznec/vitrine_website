@@ -129,8 +129,7 @@ export const Infos = styled(Flex)`
   flex-direction: column;
   padding: 10px;
 
-  & span {
-    color: ${theme.color.black};
+  & span:not(:last-child) {
     margin-bottom: 5px;
     text-transform: capitalize;
   }
