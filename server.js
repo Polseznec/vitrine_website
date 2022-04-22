@@ -34,6 +34,7 @@ app.use(
 app.use(express.static(path.join(__dirname, "../client/build")));
 
 app.use(cookieParser());
+
 app.use((req, res, next) => {
   res.status(404).json({
     message: `the ressource you're trying to request doesn't exist. Method: ${req.method} path: ${req.originalUrl}`,
@@ -58,6 +59,6 @@ app.use("/api/product", productRoutes);
 app.use("/api/mail", mailRoutes);
 
 //Server
-app.listen(process.env.SERVER_PORT, () => {
+app.listen("ttps://lili-vous-fait-les-poches.herokuapp.com", () => {
   console.log(`Listenning server port "${process.env.SERVER_PORT}"`);
 });
