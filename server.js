@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, "../client/build")));
 app.use(cookieParser());
 app.use((req, res, next) => {
   res.status(404).json({
-    message: `The ressource you're trying to request doesn't exist. Method: ${req.method} path: ${req.originalUrl}`,
+    message: `the ressource you're trying to request doesn't exist. Method: ${req.method} path: ${req.originalUrl}`,
   });
 });
 
