@@ -1,9 +1,9 @@
 import React from "react";
-import MailForm from "./MailForm";
+import { MailForm } from "./MailForm";
 
 import { Modal } from "../Modals";
 
-function MailModal({ product, closeModal }) {
+export const MailModal = ({ product, closeModal }) => {
   return (
     <Modal>
       <h3>
@@ -13,6 +13,4 @@ function MailModal({ product, closeModal }) {
       <MailForm closeModal={closeModal} product={product} />
     </Modal>
   );
-}
-
-export default MailModal;
+};

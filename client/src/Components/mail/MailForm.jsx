@@ -4,7 +4,7 @@ import axios from "axios";
 import { Form, TextInput, EmailInput, SubmitInput } from "../Inputs";
 import { Button } from "../Buttons";
 
-function MailForm({ product, closeModal }) {
+export const MailForm = ({ product, closeModal }) => {
   const [firstname, setFirstname] = React.useState("");
   const [lastname, setLastname] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -70,6 +70,4 @@ function MailForm({ product, closeModal }) {
       <Button onClick={closeModal} title={"annuler"} color={"black"} />
     </Form>
   );
-}
-
-export default MailForm;
+};

@@ -3,7 +3,7 @@ import axios from "axios";
 
 //components
 import { Button, CrossButton } from "../../Buttons";
-import MailModal from "../../Mail/MailModal";
+import { MailModal } from "../../mail/MailModal";
 
 //styled
 import { FullScreenModal } from "../../styles/Modal.styled";
