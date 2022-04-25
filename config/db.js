@@ -8,5 +8,5 @@ mongoose
       useUnifiedTopology: true,
     }
   )
-  .then((self) => console.log(`connected to "Mongodb/${self.connection.name}"`))
+  .then((self) => console.log(`Connected to "Mongodb/${self.connection.name}"`))
   .catch((err) => console.log(`Connect to mongoDb failed, error :"${err}"`));

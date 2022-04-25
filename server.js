@@ -59,6 +59,6 @@ app.use("/api/product", productRoutes);
 app.use("/api/mail", mailRoutes);
 
 //Server
-app.listen("ttps://lili-vous-fait-les-poches.herokuapp.com", () => {
+app.listen(process.env.SERVER_PORT, () => {
   console.log(`Listenning server port "${process.env.SERVER_PORT}"`);
 });
