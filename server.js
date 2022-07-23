@@ -15,7 +15,7 @@ const app = express();
 
 //cors
 const corsOptions = {
-  origin: process.env.CLIENT_URL,
+  origin: process.env.SERVER_PORT,
   credentials: true,
   allowedHeaders: ["sessionId", "Content-Type"],
   exposedHeaders: ["sessionId"],
@@ -59,6 +59,6 @@ app.use("/api/product", productRoutes);
 app.use("/api/mail", mailRoutes);
 
 //Server
-app.listen(process.env.SERVER_PORT, () => {
+app.listen(process.env.SERVER_PORT || 5000, () => {
   console.log(`Listenning server port "${process.env.SERVER_PORT}"`);
 });
