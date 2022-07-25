@@ -2,8 +2,8 @@ const router = require("express").Router();
 const productController = require("../controllers/product.controller");
 const uploadControllers = require("../controllers/upload.controller");
 
-const multer = require("multer");
-const upload = multer();
+// const multer = require("multer");
+// const upload = multer();
 
 //products
 router.post("/new", productController.createProduct);
@@ -13,6 +13,6 @@ router.put("/:id", productController.updateProduct);
 router.delete("/:id", productController.delectProduct);
 
 // upload
-router.post("/upload", upload.single("file"), uploadControllers.uploadProduct);
+// outer.post("/upload", upload.single("file"), uploadControllers.uploadProduct);
 
 module.exports = router;

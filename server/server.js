@@ -7,11 +7,13 @@ const mailRoutes = require("./routes/mail.routes");
 require("dotenv").config({
   path: "./config/.env",
 });
+
 require("./config/db");
 const { checkUser, requireAuth } = require("./middleware/auth.middleware");
 const cors = require("cors");
 
 const app = express();
+const port = process.env.SERVER_PORT;
 
 //cors
 const corsOptions = {
@@ -45,6 +47,6 @@ app.use("/api/product", productRoutes);
 app.use("/api/mail", mailRoutes);
 
 //Server
-app.listen(process.env.SERVER_PORT, () => {
-  console.log(`Listenning server port "${process.env.SERVER_PORT}"`);
+app.listen(port, () => {
+  console.log(`Listenning server port "${port}"`);
 });
